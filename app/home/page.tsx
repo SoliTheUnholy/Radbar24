@@ -12,7 +12,7 @@ import {
 import Link from "next/link";
 export default function Home() {
   return (
-    <div className="mx-8 mt-4 grid gap-4 md:mx-16 lg:mx-24">
+    <div className="mx-4 mt-4 grid gap-4 md:mx-16 lg:mx-24">
       <div className="relative h-auto overflow-hidden rounded-lg rounded-b-lg">
         <div className="absolute z-20 h-screen w-full bg-gradient-to-l from-black/50 to-transparent">
           <div className="absolute start-1/2 top-1/2 z-20 grid w-fit -translate-y-1/2 translate-x-1/2 gap-4 lg:start-1/4 lg:translate-x-1/4">
@@ -38,16 +38,18 @@ export default function Home() {
       </div>
 
       <div className="">
-        <Card className="grid gap-4 p-8">
+        <Card className="grid gap-4 p-4 lg:p-8">
           <h2 className="text-2xl font-black text-foreground">خدمات</h2>
-          <div className={`animate-fade-in-left grid gap-8 lg:gap-4 lg:grid-cols-3`}>
+          <div
+            className={`animate-fade-in-left grid gap-8 lg:grid-cols-3 lg:gap-4`}
+          >
             <Card
               className={`z-0 mt-4 grid h-auto bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
             >
               <CardHeader className="flex flex-row justify-between pb-0 text-xl text-foreground sm:text-2xl">
                 <CardTitle>درخواست وانت</CardTitle>
                 <Image
-                  className="!-mt-32"
+                  className="!-mt-32 object-contain"
                   height={300}
                   width={300}
                   src={"/pickup.png"}
@@ -57,7 +59,7 @@ export default function Home() {
               <CardFooter className="grid grid-cols-2 pt-0">
                 <Link href={"/app"}>
                   <Button
-                    className={`w-full gap-4 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
+                    className={`w-full min-w-32 mt-4 gap-4 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
                   >
                     <ArrowRightIcon />
                     <span className="font-bold">ثبت درخواست</span>
@@ -71,7 +73,7 @@ export default function Home() {
               <CardHeader className="flex flex-row justify-between pb-0 text-xl text-foreground sm:text-2xl">
                 <CardTitle>درخواست اسباب کشی</CardTitle>
                 <Image
-                  className="!-mt-32"
+                  className="!-mt-32 object-contain"
                   height={300}
                   width={300}
                   src={"/truck.png"}
@@ -81,7 +83,7 @@ export default function Home() {
               <CardFooter className="grid grid-cols-2 pt-0">
                 <Link href={""}>
                   <Button
-                    className={`w-full gap-4 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
+                    className={`w-full min-w-32 mt-4 gap-4 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
                   >
                     <ArrowRightIcon />
                     <span className="font-bold">ثبت درخواست</span>
@@ -95,7 +97,7 @@ export default function Home() {
               <CardHeader className="flex flex-row justify-between pb-0 text-xl text-foreground sm:text-2xl">
                 <CardTitle>درخواست کارگر</CardTitle>
                 <Image
-                  className="!-mt-32"
+                  className="!-mt-32 object-contain"
                   height={250}
                   width={250}
                   src={"/worker.png"}
@@ -105,7 +107,7 @@ export default function Home() {
               <CardFooter className="grid grid-cols-2 pt-0">
                 <Link href={""}>
                   <Button
-                    className={`w-full gap-4 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
+                    className={`w-full min-w-32 mt-4 gap-4 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
                   >
                     <ArrowRightIcon />
                     <span className="font-bold">ثبت درخواست</span>
