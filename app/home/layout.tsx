@@ -31,7 +31,7 @@ export default function UserLayout({
           <nav className="hidden flex-col gap-3 text-lg font-medium md:flex md:flex-row md:items-center md:gap-4 md:text-sm lg:gap-5">
             <Link
               href="#"
-              className="flex items-center text-primary gap-2 text-lg font-bold md:text-base"
+              className="flex items-center gap-2 text-lg font-bold text-primary md:text-base"
             >
               <Package2 className="h-6 w-6" />
               <span>رادبار 24</span>
@@ -65,20 +65,20 @@ export default function UserLayout({
                 size="icon"
                 className="shrink-0 md:hidden"
               >
-                <Menu className="h-5 w-5" />
+                <Menu className="h-5 w-5 text-black" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="flex flex-col overflow-y-scroll"
+              className="flex flex-col overflow-y-scroll bg-card"
             >
               <div className="mt-10 flex justify-between">
                 <Link
                   href="/home"
-                  className="flex items-center gap-2 font-semibold"
+                  className="flex items-center text-black gap-2 font-semibold"
                 >
-                  <Package2 className="h-6 w-6" />
+                  <Package2 className="h-6 w-6 " />
                   <span>رادبار 24</span>
                 </Link>
               </div>
@@ -115,10 +115,10 @@ export default function UserLayout({
         {children}
         <footer className="mt-4">
           <Card className="rounded-none px-3">
-            <CardFooter className=" border-muted-foreground p-3">
+            <CardFooter className="border-muted-foreground p-3">
               <div className="bordergray-50 flex w-full flex-col items-center justify-center py-4 md:flex-row md:justify-between">
                 <span className="mb-4 text-center font-normal text-gray-900 md:mb-0">
-                  &copy; {currentYear + " "}شركت رادبار 24 
+                  &copy; {currentYear + " "}شركت رادبار 24
                 </span>
                 <div className="flex gap-4 text-gray-900 sm:justify-center">
                   <a
