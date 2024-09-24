@@ -44,7 +44,7 @@ export default function Home() {
             <Card
               className={`animate-fade-in-up relative z-0 m-4 grid h-auto bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
             >
-              <CardHeader className="flex flex-col justify-between pb-0 text-xl text-foreground sm:text-2xl md:flex-row">
+              <CardHeader className="flex flex-col items-center justify-between pb-0 text-xl text-foreground sm:text-2xl md:flex-row">
                 <CardTitle>درخواست وانت</CardTitle>
                 <Image
                   className="order-first !-mt-32 object-contain md:order-last"
@@ -57,7 +57,7 @@ export default function Home() {
               <CardFooter className="grid pt-0 md:grid-cols-2">
                 <Link href={"/app"}>
                   <Button
-                    className={`z-30 mt-4 w-full min-w-40 gap-4 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
+                    className={`z-30 mt-4 w-full min-w-40 gap-2 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
                   >
                     <ArrowRightIcon />
                     <span className="font-bold">ثبت درخواست</span>
@@ -68,7 +68,7 @@ export default function Home() {
             <Card
               className={`animate-fade-in-up relative z-0 m-4 grid h-auto bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
             >
-              <CardHeader className="flex flex-col justify-between pb-0 text-xl text-foreground sm:text-2xl md:flex-row">
+              <CardHeader className="flex flex-col items-center justify-between pb-0 text-xl text-foreground sm:text-2xl md:flex-row">
                 <CardTitle>درخواست اسباب کشی</CardTitle>
                 <Image
                   className="order-first !-mt-32 object-contain md:order-last"
@@ -81,7 +81,7 @@ export default function Home() {
               <CardFooter className="grid pt-0 md:grid-cols-2">
                 <Link href={""}>
                   <Button
-                    className={`z-30 mt-4 w-full min-w-40 gap-4 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
+                    className={`z-30 mt-4 w-full min-w-40 gap-2 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
                   >
                     <ArrowRightIcon />
                     <span className="font-bold">ثبت درخواست</span>
@@ -92,7 +92,7 @@ export default function Home() {
             <Card
               className={`animate-fade-in-up relative z-0 m-4 grid h-auto bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
             >
-              <CardHeader className="flex flex-col justify-between pb-0 text-xl text-foreground sm:text-2xl md:flex-row">
+              <CardHeader className="flex flex-col items-center justify-between pb-0 text-xl text-foreground sm:text-2xl md:flex-row">
                 <CardTitle>درخواست کارگر</CardTitle>
                 <Image
                   className="order-first !-mt-32 object-contain md:order-last"
@@ -105,7 +105,7 @@ export default function Home() {
               <CardFooter className="grid pt-0 md:grid-cols-2">
                 <Link href={""}>
                   <Button
-                    className={`z-30 mt-4 w-full min-w-40 gap-4 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
+                    className={`z-30 mt-4 w-full min-w-40 gap-2 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
                   >
                     <ArrowRightIcon />
                     <span className="font-bold">ثبت درخواست</span>
