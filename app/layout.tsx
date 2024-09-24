@@ -3,11 +3,10 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "sonner";
 
-const Vazirmatn = localFont({ src: "/fonts/Vazirmatn[wght].woff2" });
+const Vazirmatn = localFont({ src: "./fonts/Vazirmatn[wght].woff2" });
 
 export const metadata: Metadata = {
-  title: "RadBar24",
-  description:"Transportation company"
+  title: "Radbar24",
 };
 
 export default function RootLayout({
@@ -17,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body dir="rtl" className={`${Vazirmatn.className} overflow-x-hidden`}>
+      <body dir="rtl" className={`${Vazirmatn.className} bg-background overflow-x-hidden`}>
           {children}
           <Toaster />
       </body>
