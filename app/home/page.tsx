@@ -15,7 +15,7 @@ export default function Home() {
     <div className="mx-4 mt-4 grid gap-4 md:mx-16 lg:mx-24">
       <div className="relative h-auto overflow-hidden rounded-lg rounded-b-lg">
         <div className="absolute z-20 h-screen w-full bg-gradient-to-l from-black/50 to-transparent">
-          <div className="absolute start-1/2 top-1/2 z-20 grid w-fit -translate-y-1/2 translate-x-1/2 gap-4 lg:start-1/4 lg:translate-x-1/4">
+          <div className="absolute start-1/2 top-1/2 z-20 grid w-fit -translate-y-1/2 translate-x-1/2 gap-4 text-white lg:start-1/4 lg:translate-x-1/4">
             <h2 className="text-center text-4xl font-bold text-background lg:text-6xl">
               رادبار 24
             </h2>
@@ -59,7 +59,7 @@ export default function Home() {
               <CardFooter className="grid grid-cols-2 pt-0">
                 <Link href={"/app"}>
                   <Button
-                    className={`mt-4 w-full min-w-40 gap-4 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
+                    className={`z-30 mt-4 w-full min-w-40 gap-4 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
                   >
                     <ArrowRightIcon />
                     <span className="font-bold">ثبت درخواست</span>
@@ -83,7 +83,7 @@ export default function Home() {
               <CardFooter className="grid grid-cols-2 pt-0">
                 <Link href={""}>
                   <Button
-                    className={`mt-4 w-full min-w-40 gap-4 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
+                    className={`z-30 mt-4 w-full min-w-40 gap-4 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
                   >
                     <ArrowRightIcon />
                     <span className="font-bold">ثبت درخواست</span>
@@ -107,7 +107,7 @@ export default function Home() {
               <CardFooter className="grid grid-cols-2 pt-0">
                 <Link href={""}>
                   <Button
-                    className={`mt-4 w-full min-w-40 gap-4 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
+                    className={`z-30 mt-4 w-full min-w-40 gap-4 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
                   >
                     <ArrowRightIcon />
                     <span className="font-bold">ثبت درخواست</span>
