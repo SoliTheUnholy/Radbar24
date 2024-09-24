@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div className="mx-4 mt-4 grid gap-4 md:mx-16 lg:mx-24">
       <div className="relative h-auto overflow-hidden rounded-lg rounded-b-lg">
-        <div className="absolute z-20 h-screen w-full bg-gradient-to-l from-black/50 to-transparent">
+        <div className="absolute z-20 h-[50vh] w-full bg-gradient-to-l from-black/50 to-transparent">
           <div className="absolute start-1/2 top-1/2 z-20 grid w-fit -translate-y-1/2 translate-x-1/2 gap-4 text-white lg:start-1/4 lg:translate-x-1/4">
             <h2 className="text-center text-4xl font-bold text-background lg:text-6xl">
               رادبار 24
@@ -40,11 +40,9 @@ export default function Home() {
       <div className="">
         <Card className="grid gap-4 p-4 lg:p-8">
           <h2 className="text-2xl font-black text-foreground">خدمات</h2>
-          <div
-            className={`animate-fade-in-left grid gap-8 lg:grid-cols-3 lg:gap-4`}
-          >
+          <div className={`grid gap-8 lg:grid-cols-3 lg:gap-4`}>
             <Card
-              className={`z-0 m-4 grid h-auto bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
+              className={`animate-fade-in-up relative z-0 m-4 grid h-auto bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
             >
               <CardHeader className="flex flex-col justify-between pb-0 text-xl text-foreground sm:text-2xl md:flex-row">
                 <CardTitle>درخواست وانت</CardTitle>
@@ -56,7 +54,7 @@ export default function Home() {
                   alt={""}
                 ></Image>
               </CardHeader>
-              <CardFooter className="grid grid-cols-2 pt-0">
+              <CardFooter className="grid pt-0 md:grid-cols-2">
                 <Link href={"/app"}>
                   <Button
                     className={`z-30 mt-4 w-full min-w-40 gap-4 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
@@ -68,7 +66,7 @@ export default function Home() {
               </CardFooter>
             </Card>
             <Card
-              className={`z-0 m-4 grid h-auto bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
+              className={`animate-fade-in-up relative z-0 m-4 grid h-auto bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
             >
               <CardHeader className="flex flex-col justify-between pb-0 text-xl text-foreground sm:text-2xl md:flex-row">
                 <CardTitle>درخواست اسباب کشی</CardTitle>
@@ -80,7 +78,7 @@ export default function Home() {
                   alt={""}
                 ></Image>
               </CardHeader>
-              <CardFooter className="grid grid-cols-2 pt-0">
+              <CardFooter className="grid pt-0 md:grid-cols-2">
                 <Link href={""}>
                   <Button
                     className={`z-30 mt-4 w-full min-w-40 gap-4 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
@@ -92,7 +90,7 @@ export default function Home() {
               </CardFooter>
             </Card>
             <Card
-              className={`z-0 m-4 grid h-auto bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
+              className={`animate-fade-in-up relative z-0 m-4 grid h-auto bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
             >
               <CardHeader className="flex flex-col justify-between pb-0 text-xl text-foreground sm:text-2xl md:flex-row">
                 <CardTitle>درخواست کارگر</CardTitle>
@@ -104,7 +102,7 @@ export default function Home() {
                   alt={""}
                 ></Image>
               </CardHeader>
-              <CardFooter className="grid grid-cols-2 pt-0">
+              <CardFooter className="grid pt-0 md:grid-cols-2">
                 <Link href={""}>
                   <Button
                     className={`z-30 mt-4 w-full min-w-40 gap-4 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
