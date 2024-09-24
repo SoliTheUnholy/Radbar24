@@ -47,7 +47,7 @@ export default function Home() {
               <CardHeader className="flex flex-col items-center justify-between pb-0 text-xl text-foreground sm:text-2xl md:flex-row">
                 <CardTitle>درخواست وانت</CardTitle>
                 <Image
-                  className="order-first !-mt-32 object-contain md:order-last"
+                  className="order-first pb-4 !-mt-32 object-contain md:order-last"
                   height={300}
                   width={300}
                   src={"/pickup.png"}
@@ -71,7 +71,7 @@ export default function Home() {
               <CardHeader className="flex flex-col items-center justify-between pb-0 text-xl text-foreground sm:text-2xl md:flex-row">
                 <CardTitle>درخواست اسباب کشی</CardTitle>
                 <Image
-                  className="order-first !-mt-32 object-contain md:order-last"
+                  className="order-first pb-4 !-mt-32 object-contain md:order-last"
                   height={300}
                   width={300}
                   src={"/truck.png"}
@@ -95,7 +95,7 @@ export default function Home() {
               <CardHeader className="flex flex-col items-center justify-between pb-0 text-xl text-foreground sm:text-2xl md:flex-row">
                 <CardTitle>درخواست کارگر</CardTitle>
                 <Image
-                  className="order-first !-mt-32 object-contain md:order-last"
+                  className="order-first !-mt-32 pb-4 object-contain md:order-last"
                   height={250}
                   width={250}
                   src={"/worker.png"}
