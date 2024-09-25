@@ -13,19 +13,19 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="mx-4 mt-4 grid gap-4 md:mx-16 lg:mx-24">
-      <div className="relative h-auto overflow-hidden rounded-xl">
+      <div className="relative h-auto animate-fade-in-left overflow-hidden rounded-xl">
         <div className="absolute z-20 h-[50vh] w-full bg-gradient-to-l from-black/50 to-transparent">
           <div className="absolute start-1/2 top-1/2 z-20 grid w-fit -translate-y-1/2 translate-x-1/2 gap-4 lg:start-1/4 lg:translate-x-1/4">
             <h2 className="text-center text-4xl font-bold text-white lg:text-6xl">
               رادبار 24
             </h2>
             <h3 className="text-xl text-white lg:text-2xl">
-              بزرگترین شركت حمل و نقل جنوب کشور
+              بزرگترین وانت تلفنی جنوب کشور
             </h3>
             <Link href={"./products"}>
               <Button
                 variant={"outline"}
-                className="w-full rounded-xl p-6 !text-xl bg-muted transition-all hover:invert lg:!text-2xl"
+                className="w-full rounded-xl bg-muted p-6 !text-xl transition-all hover:invert lg:!text-2xl"
               >
                 ثبت درخواست
               </Button>
@@ -36,9 +36,8 @@ export default function Home() {
           <AutoCarousel />
         </div>
       </div>
-
       <div className="">
-        <Card className="grid gap-4 border-none bg-muted/50 p-4 lg:p-8">
+        <Card className="grid animate-fade-in-up gap-4 border-none bg-muted/50 p-4 lg:p-8">
           <h2 className="text-2xl font-black text-foreground">خدمات</h2>
           <div className={`grid gap-8 lg:grid-cols-3 lg:gap-4`}>
             <Card

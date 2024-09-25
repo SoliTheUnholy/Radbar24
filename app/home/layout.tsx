@@ -115,8 +115,8 @@ export default function UserLayout({
         <footer className="mt-4">
           <Card className="rounded-none border-none px-3">
             <CardFooter className="p-3">
-              <div className="flex w-full flex-col items-center justify-center border-t-2 py-4 md:flex-row md:justify-between">
-                <span className="mb-4 text-center font-normal md:mb-0">
+              <div className="flex w-full flex-col items-center justify-center border-t border-muted-foreground py-4 md:flex-row md:justify-between">
+                <span className="mb-4 text-center font-bold text-sm md:mb-0">
                   &copy; {currentYear + " "}شركت رادبار 24
                 </span>
                 <div className="flex gap-4 sm:justify-center">
