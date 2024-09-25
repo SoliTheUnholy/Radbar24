@@ -12,10 +12,8 @@ import {
 } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 import { Separator } from "@/components/ui/separator";
-import {
-  Card,
-  CardFooter,
-} from "@/components/ui/card";
+import { Card, CardFooter } from "@/components/ui/card";
+import { SwitchTheme } from "@/components/modeToggle";
 const currentYear = new Date().getFullYear();
 
 export default function UserLayout({
@@ -76,9 +74,9 @@ export default function UserLayout({
               <div className="mt-10 flex justify-between">
                 <Link
                   href="/home"
-                  className="flex items-center text-black gap-2 font-semibold"
+                  className="flex items-center gap-2 font-semibold text-black"
                 >
-                  <Package2 className="h-6 w-6 " />
+                  <Package2 className="h-6 w-6" />
                   <span>رادبار 24</span>
                 </Link>
               </div>
@@ -110,19 +108,20 @@ export default function UserLayout({
               </nav>
             </SheetContent>
           </Sheet>
+          <SwitchTheme />
         </header>
         {/* <div className="fixed -z-50 h-screen w-screen bg-[url('/pattern.png')] bg-repeat"></div> */}
         {children}
         <footer className="mt-4">
-          <Card className="rounded-none px-3">
-            <CardFooter className="border-muted-foreground p-3">
-              <div className="bordergray-50 flex w-full flex-col items-center justify-center py-4 md:flex-row md:justify-between">
-                <span className="mb-4 text-center font-normal text-gray-900 md:mb-0">
+          <Card className="rounded-none border-none px-3">
+            <CardFooter className="p-3">
+              <div className="flex w-full flex-col items-center justify-center border-t-2 py-4 md:flex-row md:justify-between">
+                <span className="mb-4 text-center font-normal md:mb-0">
                   &copy; {currentYear + " "}شركت رادبار 24
                 </span>
-                <div className="flex gap-4 text-gray-900 sm:justify-center">
+                <div className="flex gap-4 sm:justify-center">
                   <a
-                    href="https://t.me/PooladSaghf_TPS"
+                    href="#"
                     className="opacity-80 transition-opacity hover:opacity-100"
                   >
                     <svg
@@ -139,7 +138,7 @@ export default function UserLayout({
                     </svg>
                   </a>
                   <a
-                    href="https://instagram.com/pooladsaghfcoop"
+                    href="#"
                     className="opacity-80 transition-opacity hover:opacity-100"
                   >
                     <svg

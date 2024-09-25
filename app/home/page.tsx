@@ -13,19 +13,19 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="mx-4 mt-4 grid gap-4 md:mx-16 lg:mx-24">
-      <div className="relative h-auto overflow-hidden rounded-lg rounded-b-lg">
+      <div className="relative h-auto overflow-hidden rounded-xl">
         <div className="absolute z-20 h-[50vh] w-full bg-gradient-to-l from-black/50 to-transparent">
-          <div className="absolute start-1/2 top-1/2 z-20 grid w-fit -translate-y-1/2 translate-x-1/2 gap-4 text-white lg:start-1/4 lg:translate-x-1/4">
-            <h2 className="text-center text-4xl font-bold text-background lg:text-6xl">
+          <div className="absolute start-1/2 top-1/2 z-20 grid w-fit -translate-y-1/2 translate-x-1/2 gap-4 lg:start-1/4 lg:translate-x-1/4">
+            <h2 className="text-center text-white text-4xl font-bold lg:text-6xl">
               رادبار 24
             </h2>
-            <h3 className="text-xl text-background lg:text-2xl">
+            <h3 className="text-xl text-white lg:text-2xl">
               بزرگترین شركت حمل و نقل جنوب کشور
             </h3>
             <Link href={"./products"}>
               <Button
                 variant={"outline"}
-                className="w-full border-2 bg-transparent p-6 !text-xl text-white lg:!text-2xl"
+                className="w-full p-6 !text-xl lg:!text-2xl"
               >
                 ثبت درخواست
               </Button>
@@ -42,12 +42,12 @@ export default function Home() {
           <h2 className="text-2xl font-black text-foreground">خدمات</h2>
           <div className={`grid gap-8 lg:grid-cols-3 lg:gap-4`}>
             <Card
-              className={`animate-fade-in-up relative z-0 m-4 grid h-auto bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
+              className={`relative z-0 m-4 grid h-auto animate-fade-in-up bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
             >
               <CardHeader className="flex flex-col items-center justify-between pb-0 text-xl text-foreground sm:text-2xl md:flex-row">
                 <CardTitle>درخواست وانت</CardTitle>
                 <Image
-                  className="order-first pb-4 !-mt-32 object-contain md:order-last"
+                  className="order-first !-mt-32 object-contain pb-4 md:order-last"
                   height={300}
                   width={300}
                   src={"/pickup.png"}
@@ -66,12 +66,12 @@ export default function Home() {
               </CardFooter>
             </Card>
             <Card
-              className={`animate-fade-in-up relative z-0 m-4 grid h-auto bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
+              className={`relative z-0 m-4 grid h-auto animate-fade-in-up bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
             >
               <CardHeader className="flex flex-col items-center justify-between pb-0 text-xl text-foreground sm:text-2xl md:flex-row">
                 <CardTitle>درخواست اسباب کشی</CardTitle>
                 <Image
-                  className="order-first pb-4 !-mt-32 object-contain md:order-last"
+                  className="order-first !-mt-32 object-contain pb-4 md:order-last"
                   height={300}
                   width={300}
                   src={"/truck.png"}
@@ -90,12 +90,12 @@ export default function Home() {
               </CardFooter>
             </Card>
             <Card
-              className={`animate-fade-in-up relative z-0 m-4 grid h-auto bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
+              className={`relative z-0 m-4 grid h-auto animate-fade-in-up bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
             >
               <CardHeader className="flex flex-col items-center justify-between pb-0 text-xl text-foreground sm:text-2xl md:flex-row">
                 <CardTitle>درخواست کارگر</CardTitle>
                 <Image
-                  className="order-first !-mt-32 pb-4 object-contain md:order-last"
+                  className="order-first !-mt-32 object-contain pb-4 md:order-last"
                   height={250}
                   width={250}
                   src={"/worker.png"}

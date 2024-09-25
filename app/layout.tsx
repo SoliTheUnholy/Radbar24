@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "sonner";
+import { ThemeProvider } from "@/components/themeProvider";
 
 const Vazirmatn = localFont({ src: "./fonts/Vazirmatn[wght].woff2" });
 
@@ -16,9 +17,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body dir="rtl" className={`${Vazirmatn.className} bg-background overflow-x-hidden`}>
+      <body
+        dir="rtl"
+        className={`${Vazirmatn.className} overflow-x-hidden bg-background`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+        >
           {children}
-          <Toaster />
+        </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );
