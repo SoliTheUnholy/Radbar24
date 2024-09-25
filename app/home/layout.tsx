@@ -25,11 +25,11 @@ export default function UserLayout({
   return (
     <>
       <div className="flex min-h-screen w-full flex-col">
-        <header className="sticky top-0 z-50 flex h-16 items-center justify-between gap-4 border-b bg-card px-4 md:px-6">
+        <header className="sticky transition-all top-0 z-50 flex h-16 items-center justify-between gap-4 bg-muted px-4 md:px-6">
           <nav className="hidden flex-col gap-3 text-lg font-medium md:flex md:flex-row md:items-center md:gap-4 md:text-sm lg:gap-5">
             <Link
               href="#"
-              className="flex items-center gap-2 text-lg font-bold text-primary md:text-base"
+              className="flex items-center gap-2 text-lg font-bold md:text-base"
             >
               <Package2 className="h-6 w-6" />
               <span>رادبار 24</span>
@@ -37,19 +37,19 @@ export default function UserLayout({
             <Separator orientation="vertical" className="h-10" />
             <Link
               href="/home/"
-              className={`flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${pathname === "/home" ? "text-lg font-bold text-black" : ""}`}
+              className={`flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${pathname === "/home" ? "text-lg font-bold text-primary" : ""}`}
             >
               خانه
             </Link>
             <Link
-              href="/home/products"
-              className={`flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${pathname.includes("/home/products") ? "text-lg font-bold text-black" : ""}`}
+              href="/home/services"
+              className={`flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${pathname.includes("/home/services") ? "text-lg font-bold text-primary" : ""}`}
             >
               خدمات
             </Link>
             <Link
-              href="/home/contact"
-              className={`flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${pathname === "/home/contact" ? "text-lg font-bold text-black" : ""}`}
+              href="/home/contactus"
+              className={`flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${pathname === "/home/contactus" ? "text-lg font-bold text-primary" : ""}`}
             >
               ارتباط با ما
             </Link>
@@ -63,7 +63,7 @@ export default function UserLayout({
                 size="icon"
                 className="shrink-0 md:hidden"
               >
-                <Menu className="h-5 w-5 text-black" />
+                <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
@@ -74,14 +74,14 @@ export default function UserLayout({
               <div className="mt-10 flex justify-between">
                 <Link
                   href="/home"
-                  className="flex items-center gap-2 font-semibold text-black"
+                  className="flex items-center gap-2 font-semibold"
                 >
                   <Package2 className="h-6 w-6" />
                   <span>رادبار 24</span>
                 </Link>
               </div>
               <nav className="grid gap-2 text-lg font-medium">
-                <Link href="/home/">
+                <Link href="/home">
                   <SheetClose
                     className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${pathname === "/home" ? "bg-muted text-primary" : ""}`}
                   >
@@ -89,7 +89,7 @@ export default function UserLayout({
                     خانه
                   </SheetClose>
                 </Link>
-                <Link href="/home/products">
+                <Link href="/home/services">
                   <SheetClose
                     className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${pathname === "/home/products" ? "bg-muted text-primary" : ""}`}
                   >
@@ -97,7 +97,7 @@ export default function UserLayout({
                     خدمات
                   </SheetClose>
                 </Link>
-                <Link href="/home/contact">
+                <Link href="/home/contactus">
                   <SheetClose
                     className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${pathname === "/home/contact" ? "bg-muted text-primary" : ""}`}
                   >

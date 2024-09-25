@@ -16,7 +16,7 @@ export default function Home() {
       <div className="relative h-auto overflow-hidden rounded-xl">
         <div className="absolute z-20 h-[50vh] w-full bg-gradient-to-l from-black/50 to-transparent">
           <div className="absolute start-1/2 top-1/2 z-20 grid w-fit -translate-y-1/2 translate-x-1/2 gap-4 lg:start-1/4 lg:translate-x-1/4">
-            <h2 className="text-center text-white text-4xl font-bold lg:text-6xl">
+            <h2 className="text-center text-4xl font-bold text-white lg:text-6xl">
               رادبار 24
             </h2>
             <h3 className="text-xl text-white lg:text-2xl">
@@ -25,7 +25,7 @@ export default function Home() {
             <Link href={"./products"}>
               <Button
                 variant={"outline"}
-                className="w-full p-6 !text-xl lg:!text-2xl"
+                className="w-full rounded-xl p-6 !text-xl bg-muted transition-all hover:invert lg:!text-2xl"
               >
                 ثبت درخواست
               </Button>
@@ -38,11 +38,11 @@ export default function Home() {
       </div>
 
       <div className="">
-        <Card className="grid gap-4 p-4 lg:p-8">
+        <Card className="grid gap-4 border-none bg-muted/50 p-4 lg:p-8">
           <h2 className="text-2xl font-black text-foreground">خدمات</h2>
           <div className={`grid gap-8 lg:grid-cols-3 lg:gap-4`}>
             <Card
-              className={`relative z-0 m-4 grid h-auto animate-fade-in-up bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
+              className={`relative z-0 m-4 grid h-auto animate-fade-in-up border-none bg-muted bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
             >
               <CardHeader className="flex flex-col items-center justify-between pb-0 text-xl text-foreground sm:text-2xl md:flex-row">
                 <CardTitle>درخواست وانت</CardTitle>
@@ -66,7 +66,7 @@ export default function Home() {
               </CardFooter>
             </Card>
             <Card
-              className={`relative z-0 m-4 grid h-auto animate-fade-in-up bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
+              className={`relative z-0 m-4 grid h-auto animate-fade-in-up border-none bg-muted bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
             >
               <CardHeader className="flex flex-col items-center justify-between pb-0 text-xl text-foreground sm:text-2xl md:flex-row">
                 <CardTitle>درخواست اسباب کشی</CardTitle>
@@ -90,7 +90,7 @@ export default function Home() {
               </CardFooter>
             </Card>
             <Card
-              className={`relative z-0 m-4 grid h-auto animate-fade-in-up bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
+              className={`relative z-0 m-4 grid h-auto animate-fade-in-up border-none bg-muted bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
             >
               <CardHeader className="flex flex-col items-center justify-between pb-0 text-xl text-foreground sm:text-2xl md:flex-row">
                 <CardTitle>درخواست کارگر</CardTitle>
@@ -117,33 +117,33 @@ export default function Home() {
         </Card>
       </div>
       <div className="">
-        <Card className="grid gap-4 p-8">
+        <Card className="grid gap-4 border-none bg-muted/50 p-8">
           <h2 className="text-2xl font-black text-foreground">
             چرا رادبار 24 ؟
           </h2>
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:grid-rows-1">
-            <Card className="grid grid-cols-3 grid-rows-1 gap-2 p-4 transition-all hover:scale-105 hover:shadow-lg">
+            <Card className="grid grid-cols-3 grid-rows-1 gap-2 border-none p-4 transition-all hover:scale-105 hover:shadow-lg">
               <Users className="h-12 w-12 self-center justify-self-center text-primary" />
               <div className="col-span-2 grid gap-2 text-foreground">
                 <h2 className="text-lg font-bold">خدمات 24 ساعته</h2>
                 <p>ارائه 24 ساعته خدمات به رانندگان و صاحبین بار</p>
               </div>
             </Card>
-            <Card className="grid grid-cols-3 grid-rows-1 gap-2 p-4 transition-all hover:scale-105 hover:shadow-lg">
+            <Card className="grid grid-cols-3 grid-rows-1 gap-2 border-none p-4 transition-all hover:scale-105 hover:shadow-lg">
               <Building2 className="h-12 w-12 self-center justify-self-center text-primary" />
               <div className="col-span-2 grid gap-2 text-foreground">
                 <h2 className="text-lg font-bold">حداقل کمیسیون</h2>
                 <p>ارائه تمامی خدمات با دریافت حداقل کمیسیون</p>
               </div>
             </Card>
-            <Card className="grid grid-cols-3 grid-rows-1 gap-2 p-4 transition-all hover:scale-105 hover:shadow-lg">
+            <Card className="grid grid-cols-3 grid-rows-1 gap-2 border-none p-4 transition-all hover:scale-105 hover:shadow-lg">
               <Cog className="h-12 w-12 self-center justify-self-center text-primary" />
               <div className="col-span-2 grid gap-2 text-foreground">
                 <h2 className="text-lg font-bold">همکاران مجرب</h2>
                 <p>همکاری با بزرگترین شرکت وانت تلفنی جنوب کشور</p>
               </div>
             </Card>
-            <Card className="grid grid-cols-3 grid-rows-1 gap-2 p-4 transition-all hover:scale-105 hover:shadow-lg">
+            <Card className="grid grid-cols-3 grid-rows-1 gap-2 border-none p-4 transition-all hover:scale-105 hover:shadow-lg">
               <TrendingUp className="h-12 w-12 self-center justify-self-center text-primary" />
               <div className="col-span-2 grid gap-2 text-foreground">
                 <h2 className="text-lg font-bold">حمل و نقل مطمئن</h2>
