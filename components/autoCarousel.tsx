@@ -13,11 +13,11 @@ export function AutoCarousel() {
   const plugin = React.useRef(Autoplay({ delay: 2000 }));
 
   return (
-    <Carousel plugins={[plugin.current]} className="h-[50vh] w-full">
+    <Carousel plugins={[plugin.current]} className="h-full w-full">
       <CarouselContent>
         <CarouselItem>
           <Image
-            className="h-[50vh] w-screen object-cover"
+            className="h-full w-screen object-cover"
             width={1920}
             height={1080}
             src={"/image.png"}
@@ -26,7 +26,7 @@ export function AutoCarousel() {
         </CarouselItem>
         <CarouselItem>
           <Image
-            className="h-[50vh] w-screen object-cover"
+            className="h-full w-screen object-cover"
             width={1920}
             height={1080}
             src={"/image1.png"}
@@ -35,7 +35,7 @@ export function AutoCarousel() {
         </CarouselItem>
         <CarouselItem>
           <Image
-            className="h-[50vh] w-screen object-cover"
+            className="h-full w-screen object-cover"
             width={1920}
             height={1080}
             src={"/image2.png"}
@@ -44,7 +44,7 @@ export function AutoCarousel() {
         </CarouselItem>
         <CarouselItem>
           <Image
-            className="h-[50vh] w-screen object-cover"
+            className="h-full w-screen object-cover"
             width={1920}
             height={1080}
             src={"/image3.png"}
@@ -53,7 +53,7 @@ export function AutoCarousel() {
         </CarouselItem>
         <CarouselItem>
           <Image
-            className="h-[50vh] w-screen object-cover"
+            className="h-full w-screen object-cover"
             width={1920}
             height={1080}
             src={"/image4.png"}
