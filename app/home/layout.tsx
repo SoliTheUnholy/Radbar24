@@ -25,7 +25,7 @@ export default function UserLayout({
   return (
     <>
       <div className="flex min-h-screen w-full flex-col">
-        <header className="sticky transition-all top-0 z-50 flex h-16 items-center justify-between gap-4 bg-muted px-4 md:px-6">
+        <header className="sticky top-0 z-50 flex h-16 items-center justify-between gap-4 bg-muted px-4 transition-all md:px-6">
           <nav className="hidden flex-col gap-3 text-lg font-medium md:flex md:flex-row md:items-center md:gap-4 md:text-sm lg:gap-5">
             <Link
               href="#"
@@ -112,11 +112,26 @@ export default function UserLayout({
         </header>
         {/* <div className="fixed -z-50 h-screen w-screen bg-[url('/pattern.png')] bg-repeat"></div> */}
         {children}
+        <div className="fixed sm:hidden z-30 bottom-0 flex rounded-3xl  justify-center w-full h-28 p-4 bg-clip-content">
+          <div className="bg-muted shadow-lg border-l-2 border-orange-500 h-20 grow rounded-r-xl"></div>
+          <div className="w-[150px] drop-shadow-lg h-24 flex items-end overflow-hidden">
+            <svg
+            className="fill-muted"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M150.000,134.1000 L-0.000,134.1000 L-0.000,38.1000 L18.787,38.1000 C16.343,45.537 14.1000,52.611 14.1000,60.000 C14.1000,93.137 41.863,119.1000 75.000,119.1000 C108.137,119.1000 135.000,93.137 135.000,60.000 C135.000,52.611 133.657,45.537 131.213,38.1000 L150.000,38.1000 L150.000,134.1000 ZM75.000,0.000 C100.748,0.000 122.700,16.222 131.213,38.1000 L18.787,38.1000 C27.300,16.222 49.252,0.000 75.000,0.000 Z"
+              />
+            </svg>
+          </div>
+          <div className="absolute shadow-md h-28 w-28 rounded-full bg-muted self-center justify-self-center mb-[72px] border-2 border-orange-500"></div>
+          <div className="bg-muted shadow-lg border-r-2 border-orange-500 rounded-l-xl h-20 grow"></div>
+        </div>
         <footer className="mt-4">
           <Card className="rounded-none border-none px-3">
             <CardFooter className="p-3">
               <div className="flex w-full flex-col items-center justify-center border-t border-muted-foreground py-4 md:flex-row md:justify-between">
-                <span className="mb-4 text-center font-bold text-sm md:mb-0">
+                <span className="mb-4 text-center text-sm font-bold md:mb-0">
                   &copy; {currentYear + " "}شركت رادبار 24
                 </span>
                 <div className="flex gap-4 sm:justify-center">

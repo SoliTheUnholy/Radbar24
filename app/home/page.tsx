@@ -19,7 +19,7 @@ export default function Home() {
         </div>
       </div>
       <div className="">
-        <Card className="grid animate-fade-in-up gap-4 border-none bg-muted/50 p-4 lg:p-8">
+        <Card className="grid animate-fade-in-up gap-2 border-none bg-muted/50 p-4 lg:p-8">
           <h2 className="text-lg font-black text-foreground">خدمات</h2>
           <div
             className={`grid grid-cols-2 sm:grid-cols-3 gap-4 gap-y-8 lg:grid-cols-4 lg:gap-4`}
@@ -140,7 +140,7 @@ export default function Home() {
         </Card>
       </div>
       <div className="">
-        <Card className="grid gap-4 border-none bg-muted/50 p-8">
+        <Card className="grid gap-2 border-none bg-muted/50 p-8">
           <h2 className="text-lg font-black text-foreground">
             چرا رادبار 24 ؟
           </h2>
