@@ -112,11 +112,11 @@ export default function UserLayout({
         </header>
         {/* <div className="fixed -z-50 h-screen w-screen bg-[url('/pattern.png')] bg-repeat"></div> */}
         {children}
-        <div className="fixed sm:hidden z-30 bottom-0 flex rounded-3xl  justify-center w-full h-28 p-4 bg-clip-content">
-          <div className="bg-muted shadow-lg border-l-2 border-orange-500 h-20 grow rounded-r-xl"></div>
-          <div className="w-[150px] drop-shadow-lg h-24 flex items-end overflow-hidden">
+        <div className="fixed sm:hidden z-30 bottom-0 flex rounded-3xl  justify-center w-full h-32 p-4 bg-clip-content">
+          <div className="bg-muted shadow-lg border-2 border-orange-500 h-24 grow rounded-r-xl"></div>
+          <div className="w-[150px] drop-shadow-lg h-28 flex items-end overflow-hidden">
             <svg
-            className="fill-muted"
+            className="fill-muted stroke-2 stroke-primary"
             >
               <path
                 fill-rule="evenodd"
@@ -124,8 +124,8 @@ export default function UserLayout({
               />
             </svg>
           </div>
-          <div className="absolute shadow-md h-28 w-28 rounded-full bg-muted self-center justify-self-center mb-[72px] border-2 border-orange-500"></div>
-          <div className="bg-muted shadow-lg border-r-2 border-orange-500 rounded-l-xl h-20 grow"></div>
+          <div className="absolute shadow-md h-28 w-28 rounded-full bg-muted self-center justify-self-center mb-[54px] border-2 border-orange-500"></div>
+          <div className="bg-muted shadow-lg border-2 border-orange-500 rounded-l-xl h-24 grow"></div>
         </div>
         <footer className="mt-4">
           <Card className="rounded-none border-none px-3">
