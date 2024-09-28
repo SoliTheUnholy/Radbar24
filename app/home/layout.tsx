@@ -14,6 +14,7 @@ import { usePathname } from "next/navigation";
 import { Separator } from "@/components/ui/separator";
 import { Card, CardFooter } from "@/components/ui/card";
 import { SwitchTheme } from "@/components/modeToggle";
+import { useTheme } from "next-themes";
 const currentYear = new Date().getFullYear();
 
 export default function UserLayout({
@@ -22,6 +23,7 @@ export default function UserLayout({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
+  const {theme} = useTheme()
   return (
     <>
       <div className="flex min-h-screen w-full flex-col">
@@ -51,7 +53,7 @@ export default function UserLayout({
               href="/home/contactus"
               className={`flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${pathname === "/home/contactus" ? "text-lg font-bold text-primary" : ""}`}
             >
-              ارتباط با ما
+              پشتیبانی
             </Link>
           </nav>
           <Sheet>
@@ -102,7 +104,7 @@ export default function UserLayout({
                     className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${pathname === "/home/contact" ? "bg-muted text-primary" : ""}`}
                   >
                     <Home className="h-4 w-4" />
-                    ارتباط با ما
+                    پشتیبانی
                   </SheetClose>
                 </Link>
               </nav>
@@ -110,22 +112,28 @@ export default function UserLayout({
           </Sheet>
           <SwitchTheme />
         </header>
-        {/* <div className="fixed -z-50 h-screen w-screen bg-[url('/pattern.png')] bg-repeat"></div> */}
+        <div
+          className={`fixed ${theme === "dark" && "invert"} -z-50 h-screen w-screen bg-[url('/pattern.png')] bg-repeat`}
+        ></div>
         {children}
-        <div className="fixed sm:hidden z-30 bottom-0 flex rounded-3xl  justify-center w-full h-32 p-4 bg-clip-content">
-          <div className="bg-muted shadow-lg border-2 border-orange-500 h-24 grow rounded-r-xl"></div>
-          <div className="w-[150px] drop-shadow-lg h-28 flex items-end overflow-hidden">
+        <div className="fixed bottom-0 z-30 flex h-32 w-full justify-center rounded-3xl bg-clip-content p-4 sm:hidden">
+          <div className="h-16 grow rounded-r-xl -ml-[2px] border-2 border-l-0 border-orange-500 bg-muted shadow-lg"></div>
+          <div className="flex h-[66px] w-[103px] items-end overflow-hidden drop-shadow-lg">
             <svg
-            className="fill-muted stroke-2 stroke-primary"
+              width="103px"
+              height="84px"
             >
               <path
+              className="stroke-2 stroke-primary fill-muted"
                 fill-rule="evenodd"
-                d="M150.000,134.1000 L-0.000,134.1000 L-0.000,38.1000 L18.787,38.1000 C16.343,45.537 14.1000,52.611 14.1000,60.000 C14.1000,93.137 41.863,119.1000 75.000,119.1000 C108.137,119.1000 135.000,93.137 135.000,60.000 C135.000,52.611 133.657,45.537 131.213,38.1000 L150.000,38.1000 L150.000,134.1000 ZM75.000,0.000 C100.748,0.000 122.700,16.222 131.213,38.1000 L18.787,38.1000 C27.300,16.222 49.252,0.000 75.000,0.000 Z"
+                stroke-linecap="butt"
+                stroke-linejoin="miter"
+                d="M1.1000,18.1000 L100.000,18.1000 L100.000,81.000 L1.1000,81.000 L1.1000,18.1000 ZM50.1000,1.1000 C68.397,1.1000 82.500,16.103 82.500,33.500 C82.500,50.897 68.397,65.000 50.1000,65.000 C33.603,65.000 19.500,50.897 19.500,33.500 C19.500,16.103 33.603,1.1000 50.1000,1.1000 Z"
               />
             </svg>
           </div>
-          <div className="absolute shadow-md h-28 w-28 rounded-full bg-muted self-center justify-self-center mb-[54px] border-2 border-orange-500"></div>
-          <div className="bg-muted shadow-lg border-2 border-orange-500 rounded-l-xl h-24 grow"></div>
+          <div className="absolute mb-[64px] h-14 w-14 self-center justify-self-center rounded-full border-2 border-orange-500 bg-muted shadow-md"></div>
+          <div className="h-16 grow rounded-l-xl border-r-0 border-2 border-orange-500 bg-muted shadow-lg"></div>
         </div>
         <footer className="mt-4">
           <Card className="rounded-none border-none px-3">
