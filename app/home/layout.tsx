@@ -127,7 +127,7 @@ export default function UserLayout({
               />
             </svg>
           </div>
-          <div className="absolute ml-[2px] mb-[32px] h-14 w-14 self-center justify-self-center rounded-full border-2 border-orange-500 bg-muted shadow-md"></div>
+          <div className="absolute ml-[1px] mb-[32px] h-14 w-14 self-center justify-self-center rounded-full border-2 border-orange-500 bg-muted shadow-md"></div>
           <div className="h-16 grow rounded-l-xl border-2 border-r-0 border-orange-500 bg-muted shadow-lg"></div>
         </div>
         <footer className="mt-4">
