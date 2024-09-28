@@ -116,22 +116,19 @@ export default function UserLayout({
           className={`fixed ${theme === "dark" && "invert"} -z-50 h-screen w-screen bg-[url('/pattern.png')] bg-repeat`}
         ></div>
         {children}
-        <div className="fixed bottom-0 z-30 flex h-32 w-full justify-center rounded-3xl bg-clip-content p-4 sm:hidden">
-          <div className="h-16 grow rounded-r-xl -ml-[2px] border-2 border-l-0 border-orange-500 bg-muted shadow-lg"></div>
+        <div className="fixed bottom-0 z-30 flex h-24 w-full justify-center rounded-3xl bg-clip-content p-4 sm:hidden">
+          <div className="-ml-[2px] h-16 grow rounded-r-xl border-2 border-l-0 border-orange-500 bg-muted shadow-lg"></div>
           <div className="flex h-[66px] w-[103px] items-end overflow-hidden drop-shadow-lg">
-            <svg
-              width="103px"
-              height="84px"
-            >
+            <svg width="103px" height="84px">
               <path
-              className="stroke-2 stroke-primary fill-muted"
+                className="fill-muted stroke-primary stroke-2"
                 fillRule="evenodd"
                 d="M1.1000,18.1000 L100.000,18.1000 L100.000,81.000 L1.1000,81.000 L1.1000,18.1000 ZM50.1000,1.1000 C68.397,1.1000 82.500,16.103 82.500,33.500 C82.500,50.897 68.397,65.000 50.1000,65.000 C33.603,65.000 19.500,50.897 19.500,33.500 C19.500,16.103 33.603,1.1000 50.1000,1.1000 Z"
               />
             </svg>
           </div>
-          <div className="absolute mb-[64px] h-14 w-14 self-center justify-self-center rounded-full border-2 border-orange-500 bg-muted shadow-md"></div>
-          <div className="h-16 grow rounded-l-xl border-r-0 border-2 border-orange-500 bg-muted shadow-lg"></div>
+          <div className="absolute ml-[2px] mb-[32px] h-14 w-14 self-center justify-self-center rounded-full border-2 border-orange-500 bg-muted shadow-md"></div>
+          <div className="h-16 grow rounded-l-xl border-2 border-r-0 border-orange-500 bg-muted shadow-lg"></div>
         </div>
         <footer className="mt-4">
           <Card className="rounded-none border-none px-3">
