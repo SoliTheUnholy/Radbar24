@@ -125,9 +125,7 @@ export default function UserLayout({
             >
               <path
               className="stroke-2 stroke-primary fill-muted"
-                fill-rule="evenodd"
-                stroke-linecap="butt"
-                stroke-linejoin="miter"
+                fillRule="evenodd"
                 d="M1.1000,18.1000 L100.000,18.1000 L100.000,81.000 L1.1000,81.000 L1.1000,18.1000 ZM50.1000,1.1000 C68.397,1.1000 82.500,16.103 82.500,33.500 C82.500,50.897 68.397,65.000 50.1000,65.000 C33.603,65.000 19.500,50.897 19.500,33.500 C19.500,16.103 33.603,1.1000 50.1000,1.1000 Z"
               />
             </svg>
