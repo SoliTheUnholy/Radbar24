@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Home, Menu, Package2 } from "lucide-react";
+import { Home, Menu, Package2, CirclePlus, List, Headset } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -117,8 +117,13 @@ export default function UserLayout({
         ></div>
         {children}
         <div className="fixed bottom-0 z-30 flex h-24 w-full justify-center rounded-3xl bg-clip-content p-4 sm:hidden">
-          <div className="-ml-[2px] h-16 grow rounded-r-xl border-2 border-l-0 border-orange-500 bg-muted shadow-lg"></div>
-          <div className="flex h-[66px] w-[103px] items-end overflow-hidden drop-shadow-lg">
+          <div className="-ml-[2px] flex h-16 grow items-center justify-center rounded-r-xl border-2 border-l-0 border-orange-500 bg-muted shadow-lg">
+            <div className="w-18 flex flex-col items-center justify-center gap-1 text-xs font-bold text-foreground/75">
+              <Headset className="ml-1 h-6 w-6 stroke-2" />
+              <h3 className="w-20 text-center">پشتیبانی</h3>
+            </div>
+          </div>
+          <div className="flex h-[66px] w-[103px] items-end justify-center overflow-hidden text-foreground/75 drop-shadow-lg">
             <svg width="103px" height="84px">
               <path
                 className="fill-muted stroke-primary stroke-2"
@@ -126,12 +131,22 @@ export default function UserLayout({
                 d="M1.1000,18.1000 L100.000,18.1000 L100.000,81.000 L1.1000,81.000 L1.1000,18.1000 ZM50.1000,1.1000 C68.397,1.1000 82.500,16.103 82.500,33.500 C82.500,50.897 68.397,65.000 50.1000,65.000 C33.603,65.000 19.500,50.897 19.500,33.500 C19.500,16.103 33.603,1.1000 50.1000,1.1000 Z"
               />
             </svg>
+            <h3 className="absolute z-50 mb-[2px] text-xs font-bold text-foreground/75">
+              ثبت سفارش
+            </h3>
           </div>
-          <div className="absolute ml-[1px] mb-[32px] h-14 w-14 self-center justify-self-center rounded-full border-2 border-orange-500 bg-muted shadow-md"></div>
-          <div className="h-16 grow rounded-l-xl border-2 border-r-0 border-orange-500 bg-muted shadow-lg"></div>
+          <div className="absolute mb-[32px] ml-[1px] flex h-14 w-14 items-center justify-center self-center justify-self-center rounded-full border-2 border-orange-500 bg-muted shadow-md">
+            <CirclePlus className="h-10 w-10 text-primary" />
+          </div>
+          <div className="flex h-16 grow items-center justify-center rounded-l-xl border-2 border-r-0 border-orange-500 bg-muted shadow-lg">
+            <div className="w-18 flex flex-col items-center justify-center gap-1 text-xs font-bold text-foreground/75">
+              <List className="h-6 w-6" />
+              <h3 className="w-20 text-center">لیست سفارشات</h3>
+            </div>
+          </div>
         </div>
         <footer className="mt-4">
-          <Card className="rounded-none border-none px-3">
+          <Card className="rounded-none border-none px-3 sm:pb-0 pb-20">
             <CardFooter className="p-3">
               <div className="flex w-full flex-col items-center justify-center border-t border-muted-foreground py-4 md:flex-row md:justify-between">
                 <span className="mb-4 text-center text-sm font-bold md:mb-0">

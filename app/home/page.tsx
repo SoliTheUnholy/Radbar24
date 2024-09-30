@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { Asked } from "@/components/Asked";
+import { Input } from "@/components/ui/input";
 export default function Home() {
   return (
     <div className="mx-4 grid gap-4 sm:mx-12 xl:mx-24">
@@ -191,12 +192,46 @@ export default function Home() {
           </div>
         </Card>
       </div>
-      <div>
-        <div className="rounded-xl bg-muted/75 grid gap-2 p-4 lg:p-8">
-          <h2 className="text-lg font-black text-foreground">
-            پرسش‌های متداول
-          </h2>
-          <Asked />
+      <div className="grid gap-4 md:grid-cols-2 md:grid-rows-2">
+        <div className="md:row-span-2">
+          <div className="grid gap-2 rounded-xl bg-muted/75 p-4 lg:p-8">
+            <h2 className="text-lg font-black text-foreground">
+              پرسش‌های متداول
+            </h2>
+            <Asked />
+          </div>
+        </div>
+        <div className="">
+          <div className="grid gap-2 rounded-xl bg-muted/75 p-4 lg:p-8">
+            <h2 className="text-lg font-black text-foreground">کد تخفیف</h2>
+            <p>
+              شماره موبایل خود را وارد نمایید تا کد تخفیف 50 هزار تومانی برای
+              سفارش اول شما ارسال شود
+            </p>
+            <div className="flex w-full max-w-sm items-center space-x-2">
+              <Input
+                className="rounded-l-none bg-muted"
+                type="number"
+                placeholder="شماره تماس"
+              />
+              <Button className="rounded-r-none px-6" type="submit">
+                ثبت
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div className="grid gap-2 rounded-xl bg-muted/75 p-4 lg:p-8">
+            <h2 className="text-lg font-black text-foreground">
+              دانلود اپلیکیشن
+            </h2>
+            <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
+              <Button variant={"outline"}>بازار</Button>
+              <Button variant={"outline"}>سروش</Button>
+              <Button variant={"outline"}>مایکت</Button>
+              <Button variant={"outline"}>ios</Button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

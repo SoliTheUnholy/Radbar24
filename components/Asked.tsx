@@ -37,7 +37,7 @@ export function Asked() {
           جدید باشد، امکان استفاده از کد تخفیف خرید اول را ایجاد .می کند
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="item-4">
+      <AccordionItem className="border-none" value="item-4">
         <AccordionTrigger>چطور میتوانم امتیاز‌ بگیریم؟ </AccordionTrigger>
         <AccordionContent>
           بعد از ساخت حساب کاربری ، می توانید با یکی از روش های زیر امتیاز کسب
