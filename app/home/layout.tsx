@@ -14,7 +14,6 @@ import { usePathname } from "next/navigation";
 import { Separator } from "@/components/ui/separator";
 import { Card, CardFooter } from "@/components/ui/card";
 import { SwitchTheme } from "@/components/modeToggle";
-import { useTheme } from "next-themes";
 const currentYear = new Date().getFullYear();
 
 export default function UserLayout({
@@ -23,7 +22,6 @@ export default function UserLayout({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
-  const {theme} = useTheme()
   return (
     <>
       <div className="flex min-h-screen w-full flex-col">
@@ -110,11 +108,23 @@ export default function UserLayout({
               </nav>
             </SheetContent>
           </Sheet>
-          <SwitchTheme />
+          <div className="flex flex-row items-center gap-2">
+            <div className="grid grid-cols-2 gap-2">
+              <Link href={"/home/register"}>
+                <Button className="w-full" variant={"outline"}>
+                  ثبت نام
+                </Button>
+              </Link>
+              <Link href={"/home/login"}>
+                <Button className="w-full" variant={"default"}>
+                  ورود
+                </Button>
+              </Link>
+            </div>
+            <Separator className="h-10" orientation="vertical" />
+            <SwitchTheme />
+          </div>
         </header>
-        <div
-          className={`fixed ${theme === "dark" && "invert"} -z-50 h-screen w-screen bg-[url('/pattern.png')] bg-repeat`}
-        ></div>
         {children}
         <div className="fixed bottom-0 z-30 flex h-24 w-full justify-center rounded-3xl bg-clip-content p-4 sm:hidden">
           <div className="-ml-[2px] flex h-16 grow items-center justify-center rounded-r-xl border-2 border-l-0 border-orange-500 bg-muted shadow-lg">
@@ -146,7 +156,7 @@ export default function UserLayout({
           </div>
         </div>
         <footer className="mt-4">
-          <Card className="rounded-none border-none px-3 sm:pb-0 pb-20">
+          <Card className="rounded-none border-none px-3 pb-20 sm:pb-0">
             <CardFooter className="p-3">
               <div className="flex w-full flex-col items-center justify-center border-t border-muted-foreground py-4 md:flex-row md:justify-between">
                 <span className="mb-4 text-center text-sm font-bold md:mb-0">
