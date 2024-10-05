@@ -15,7 +15,6 @@ import { Separator } from "@/components/ui/separator";
 import { Card, CardFooter } from "@/components/ui/card";
 import { SwitchTheme } from "@/components/modeToggle";
 const currentYear = new Date().getFullYear();
-
 export default function UserLayout({
   children,
 }: Readonly<{
@@ -109,47 +108,40 @@ export default function UserLayout({
             </SheetContent>
           </Sheet>
           <div className="flex flex-row items-center gap-2">
-            <div className="grid grid-cols-2 gap-2">
-              <Link href={"/home/register"}>
-                <Button className="w-full" variant={"outline"}>
-                  ثبت نام
-                </Button>
-              </Link>
               <Link href={"/home/login"}>
                 <Button className="w-full" variant={"default"}>
-                  ورود
+                  ورود / ثبت نام
                 </Button>
               </Link>
-            </div>
             <Separator className="h-10" orientation="vertical" />
             <SwitchTheme />
           </div>
         </header>
         {children}
         <div className="fixed bottom-0 z-30 flex h-24 w-full justify-center rounded-3xl bg-clip-content p-4 sm:hidden">
-          <div className="-ml-[2px] flex h-16 grow items-center justify-center rounded-r-xl border-2 border-l-0 border-orange-500 bg-muted shadow-lg">
-            <div className="w-18 flex flex-col items-center justify-center gap-1 text-xs font-bold text-foreground/75">
+          <div className="-ml-[2px] flex h-16 grow items-center justify-center rounded-r-xl bg-primary shadow-lg">
+            <div className="w-18 flex flex-col items-center justify-center gap-1 text-xs font-bold text-background">
               <Headset className="ml-1 h-6 w-6 stroke-2" />
               <h3 className="w-20 text-center">پشتیبانی</h3>
             </div>
           </div>
-          <div className="flex h-[66px] w-[103px] items-end justify-center overflow-hidden text-foreground/75 drop-shadow-lg">
+          <div className="flex h-[66px] w-[103px] items-end justify-center overflow-hidden text-background drop-shadow-lg">
             <svg width="103px" height="84px">
               <path
-                className="fill-muted stroke-primary stroke-2"
+                className="fill-primary"
                 fillRule="evenodd"
                 d="M1.1000,18.1000 L100.000,18.1000 L100.000,81.000 L1.1000,81.000 L1.1000,18.1000 ZM50.1000,1.1000 C68.397,1.1000 82.500,16.103 82.500,33.500 C82.500,50.897 68.397,65.000 50.1000,65.000 C33.603,65.000 19.500,50.897 19.500,33.500 C19.500,16.103 33.603,1.1000 50.1000,1.1000 Z"
               />
             </svg>
-            <h3 className="absolute z-50 mb-[2px] text-xs font-bold text-foreground/75">
+            <h3 className="absolute z-50 mb-[2px] text-xs font-bold text-background">
               ثبت سفارش
             </h3>
           </div>
-          <div className="absolute mb-[32px] ml-[1px] flex h-14 w-14 items-center justify-center self-center justify-self-center rounded-full border-2 border-orange-500 bg-muted shadow-md">
-            <CirclePlus className="h-10 w-10 text-primary" />
+          <div className="absolute mb-[32px] ml-[1px] flex h-14 w-14 items-center justify-center self-center justify-self-center rounded-full bg-primary shadow-md">
+            <CirclePlus className="h-12 w-12 stroke-[1.5px] text-background" />
           </div>
-          <div className="flex h-16 grow items-center justify-center rounded-l-xl border-2 border-r-0 border-orange-500 bg-muted shadow-lg">
-            <div className="w-18 flex flex-col items-center justify-center gap-1 text-xs font-bold text-foreground/75">
+          <div className="flex h-16 grow items-center justify-center rounded-l-xl  bg-primary shadow-lg">
+            <div className="w-18 flex flex-col items-center justify-center gap-1 text-xs font-bold text-background">
               <List className="h-6 w-6" />
               <h3 className="w-20 text-center">لیست سفارشات</h3>
             </div>

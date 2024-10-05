@@ -18,7 +18,6 @@ import {
 } from "@/components/ui/card";
 
 export default function LoginForm() {
-  // const [error, setError] = useState("");
   // const router = useRouter();
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -42,7 +41,7 @@ export default function LoginForm() {
           <CardHeader>
             <CardTitle className="text-xl">ورود به حساب</CardTitle>
             <CardDescription>
-              شماره تلفن و رمز ورود خود را وارد کنید
+              شماره تلفن خود را وارد کنید
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -51,11 +50,6 @@ export default function LoginForm() {
               onSubmit={handleSubmit}
             >
               <div className="grid w-80 gap-4">
-                {/* {error && (
-                  <div className="text-center text-sm font-medium text-red-500">
-                    {error}
-                  </div>
-                )} */}
                 <div className="grid gap-2">
                   <Label htmlFor="number">شماره تلفن</Label>
                   <Input
@@ -65,34 +59,13 @@ export default function LoginForm() {
                     required
                   />
                 </div>
-                <div className="grid gap-2">
-                  <div className="flex justify-between">
-                    <Label htmlFor="password">رمز</Label>
-                    <Link href="/forgot-password" className="text-sm underline">
-                      رمز خود را فراموش کرده اید؟
-                    </Link>
-                  </div>
-                  <Input name="password" type="password" required />
-                </div>
                 <Button type="submit" className="w-full">
-                  ورود
-                </Button>
-                <Button variant="outline" className="w-full">
-                  ورود با رمز یکبار مصرف
+                  ورود / ثبت نام
                 </Button>
               </div>
             </form>
           </CardContent>
           <CardFooter className="grid">
-            <div className="text-center text-sm">
-              حساب کاربری ندارید ؟
-              <Link
-                href="/home/register"
-                className="mr-1 text-primary underline"
-              >
-                ثبت نام
-              </Link>
-            </div>
           </CardFooter>
         </Card>
       </div>
