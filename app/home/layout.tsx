@@ -108,24 +108,24 @@ export default function UserLayout({
             </SheetContent>
           </Sheet>
           <div className="flex flex-row items-center gap-2">
-              <Link href={"/home/login"}>
-                <Button className="w-full" variant={"default"}>
-                  ورود / ثبت نام
-                </Button>
-              </Link>
+            <Link href={"/home/login"}>
+              <Button className="w-full" variant={"default"}>
+                ورود / ثبت نام
+              </Button>
+            </Link>
             <Separator className="h-10" orientation="vertical" />
             <SwitchTheme />
           </div>
         </header>
         {children}
         <div className="fixed bottom-0 z-30 flex h-24 w-full justify-center rounded-3xl bg-clip-content p-4 sm:hidden">
-          <div className="-ml-[2px] flex h-16 grow items-center justify-center rounded-r-xl bg-primary shadow-lg">
+          <div className="-ml-[2px] flex h-[61.5px] grow items-center justify-center rounded-r-2xl bg-primary shadow-lg">
             <div className="w-18 flex flex-col items-center justify-center gap-1 text-xs font-bold text-background">
               <Headset className="ml-1 h-6 w-6 stroke-2" />
               <h3 className="w-20 text-center">پشتیبانی</h3>
             </div>
           </div>
-          <div className="flex h-[66px] w-[103px] items-end justify-center overflow-hidden text-background drop-shadow-lg">
+          <div className="flex h-[65px] w-[103px] items-end justify-center overflow-hidden text-background drop-shadow-lg">
             <svg width="103px" height="84px">
               <path
                 className="fill-primary"
@@ -137,10 +137,10 @@ export default function UserLayout({
               ثبت سفارش
             </h3>
           </div>
-          <div className="absolute mb-[32px] ml-[1px] flex h-14 w-14 items-center justify-center self-center justify-self-center rounded-full bg-primary shadow-md">
+          <div className="absolute mb-9 ml-[1px] flex h-14 w-14 items-center justify-center self-center justify-self-center rounded-full bg-primary shadow-md">
             <CirclePlus className="h-12 w-12 stroke-[1.5px] text-background" />
           </div>
-          <div className="flex h-16 grow items-center justify-center rounded-l-xl  bg-primary shadow-lg">
+          <div className="flex h-[61.5px] grow items-center justify-center rounded-l-2xl bg-primary shadow-lg">
             <div className="w-18 flex flex-col items-center justify-center gap-1 text-xs font-bold text-background">
               <List className="h-6 w-6" />
               <h3 className="w-20 text-center">لیست سفارشات</h3>

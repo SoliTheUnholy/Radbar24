@@ -1,11 +1,14 @@
 "use client";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useState } from "react";
+
+import { useRouter } from "next/navigation";
+
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   Card,
   CardHeader,
@@ -20,26 +23,36 @@ import {
   FormLabel,
   FormControl,
   FormMessage,
+  Form,
 } from "@/components/ui/form";
-import { Form } from "@/components/ui/form";
-import { toast } from "sonner";
-const formSchema = z.object({
-  number: z.string().min(10, {
-    message: "Username must be at least 2 characters.",
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
+
+const FormSchema = z.object({
+  pin: z.string().min(5, {
+    message: "Your one-time password must be 6 characters.",
   }),
 });
-export default function LoginForm() {
-  const [isLoading, setLoading] = useState(false);
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+
+export default function OTP() {
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
     defaultValues: {
-      number: "",
+      pin: "",
     },
   });
+  const [isLoading, setLoading] = useState(false);
   const router = useRouter();
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
     toast("You submitted the following values:", {
-      description: <span className="text-foreground">منتظر بمانید</span>,
+      description: (
+        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+        </pre>
+      ),
     });
     setLoading(true);
     try {
@@ -51,27 +64,25 @@ export default function LoginForm() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            PhoneNumber: values.number,
+            PhoneNumber: data,
           }),
         },
       );
       const res = await response.json();
-      if (res.Result.Value.IsNewUser) {
-        router.push("./login/register");
-      } else {
-        router.push("./login/otp");
-      }
+      console.log(res);
+      router.refresh();
     } catch (error) {
       console.error("Error submitting data:", error);
     }
   }
+
   return (
     <div className="relative grid h-screen items-center justify-center overflow-hidden bg-muted lg:grid-cols-5">
       <div className="z-10 flex h-auto items-center justify-center lg:col-span-2">
         <Card className="w-[90vw] max-w-fit">
           <CardHeader>
             <CardTitle className="text-xl">ورود به حساب</CardTitle>
-            <CardDescription>شماره تلفن خود را وارد کنید</CardDescription>
+            <CardDescription>رمز ارسال شده را وارد کنید</CardDescription>
           </CardHeader>
           <CardContent>
             <Form {...form}>
@@ -81,16 +92,20 @@ export default function LoginForm() {
               >
                 <FormField
                   control={form.control}
-                  name="number"
+                  name="pin"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>شماره تلفن</FormLabel>
+                      <FormLabel>پسوورد</FormLabel>
                       <FormControl>
-                        <Input
-                          type="number"
-                          placeholder="09012345678"
-                          {...field}
-                        />
+                        <InputOTP dir="ltr" maxLength={5} {...field}>
+                          <InputOTPGroup>
+                            <InputOTPSlot index={0} />
+                            <InputOTPSlot index={1} />
+                            <InputOTPSlot index={2} />
+                            <InputOTPSlot index={3} />
+                            <InputOTPSlot index={4} />
+                          </InputOTPGroup>
+                        </InputOTP>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
