@@ -14,7 +14,6 @@ import { usePathname } from "next/navigation";
 import { Separator } from "@/components/ui/separator";
 import { Card, CardFooter } from "@/components/ui/card";
 import { SwitchTheme } from "@/components/modeToggle";
-const currentYear = new Date().getFullYear();
 export default function UserLayout({
   children,
 }: Readonly<{
@@ -119,13 +118,13 @@ export default function UserLayout({
         </header>
         {children}
         <div className="fixed bottom-0 z-30 flex h-24 w-full justify-center rounded-3xl bg-clip-content p-4 sm:hidden">
-          <div className="-ml-[2px] flex h-[61.5px] grow items-center justify-center rounded-r-2xl bg-primary shadow-lg">
-            <div className="w-18 flex flex-col items-center justify-center gap-1 text-xs font-bold text-background">
+          <div className="-ml-[2px] flex h-[61.5px] grow items-center justify-center rounded-r-full bg-primary/95 shadow-lg">
+            <div className="w-18 flex flex-col items-center justify-center gap-1 text-xs font-bold text-white">
               <Headset className="ml-1 h-6 w-6 stroke-2" />
               <h3 className="w-20 text-center">پشتیبانی</h3>
             </div>
           </div>
-          <div className="flex h-[65px] w-[103px] items-end justify-center overflow-hidden text-background drop-shadow-lg">
+          <div className="flex h-[65px] w-[103px] items-end justify-center overflow-hidden text-background opacity-95 drop-shadow-lg">
             <svg width="103px" height="84px">
               <path
                 className="fill-primary"
@@ -133,15 +132,15 @@ export default function UserLayout({
                 d="M1.1000,18.1000 L100.000,18.1000 L100.000,81.000 L1.1000,81.000 L1.1000,18.1000 ZM50.1000,1.1000 C68.397,1.1000 82.500,16.103 82.500,33.500 C82.500,50.897 68.397,65.000 50.1000,65.000 C33.603,65.000 19.500,50.897 19.500,33.500 C19.500,16.103 33.603,1.1000 50.1000,1.1000 Z"
               />
             </svg>
-            <h3 className="absolute z-50 mb-[2px] text-xs font-bold text-background">
+            <h3 className="absolute z-50 mb-[2px] text-xs font-bold text-white">
               ثبت سفارش
             </h3>
           </div>
-          <div className="absolute mb-9 ml-[1px] flex h-14 w-14 items-center justify-center self-center justify-self-center rounded-full bg-primary shadow-md">
-            <CirclePlus className="h-12 w-12 stroke-[1.5px] text-background" />
+          <div className="absolute mb-9 ml-[1px] flex h-14 w-14 items-center justify-center self-center justify-self-center rounded-full bg-primary opacity-95 shadow-md">
+            <CirclePlus className="h-12 w-12 stroke-[1.5px] text-white" />
           </div>
-          <div className="flex h-[61.5px] grow items-center justify-center rounded-l-2xl bg-primary shadow-lg">
-            <div className="w-18 flex flex-col items-center justify-center gap-1 text-xs font-bold text-background">
+          <div className="flex h-[61.5px] grow items-center justify-center rounded-l-full bg-primary/95 shadow-lg">
+            <div className="w-18 flex flex-col items-center justify-center gap-1 text-xs font-bold text-white">
               <List className="h-6 w-6" />
               <h3 className="w-20 text-center">لیست سفارشات</h3>
             </div>
@@ -152,7 +151,8 @@ export default function UserLayout({
             <CardFooter className="p-3">
               <div className="flex w-full flex-col items-center justify-center border-t border-muted-foreground py-4 md:flex-row md:justify-between">
                 <span className="mb-4 text-center text-sm font-bold md:mb-0">
-                  &copy; {currentYear + " "}شركت رادبار 24
+                  تمامی حقوق برای رادبار 24 محفوظ می باشد .<br/> طراحی شده با ❤️ توسط
+                  <a className="hover:text-primary" href="fartakecu.com"> تجارت الکترونیک فرتاک</a>
                 </span>
                 <div className="flex gap-4 sm:justify-center">
                   <a

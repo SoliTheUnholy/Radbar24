@@ -24,31 +24,28 @@ export default function Home() {
         <Card className="grid animate-fade-in-up gap-2 border-none bg-muted/75 p-4 lg:p-8">
           <h2 className="text-lg font-black text-foreground">خدمات</h2>
           <div
-            className={`grid grid-cols-2 gap-4 gap-y-8 sm:grid-cols-3 lg:grid-cols-4 lg:gap-4`}
+            className={`grid grid-cols-2 gap-4 gap-y-8 sm:grid-cols-3 lg:grid-cols-4 lg:gap-8`}
           >
             <Card
               className={`relative z-0 grid h-auto animate-fade-in-up border-none bg-muted bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
             >
-              <CardHeader className="flex flex-col items-center justify-between p-2 text-xl text-foreground sm:text-2xl lg:flex-row">
-                <CardTitle className="text-sm md:text-base">
-                  درخواست وانت
-                </CardTitle>
+              <CardHeader className="flex flex-col items-center justify-center p-2 text-xl text-foreground sm:text-2xl lg:flex-row">
                 <Image
-                  className="order-first !-mt-12 object-contain lg:order-last"
-                  height={125}
-                  width={125}
+                  className="order-first !-mt-16 object-contain lg:order-last"
+                  height={225}
+                  width={225}
                   src={"/pickup.png"}
                   alt={""}
                 ></Image>
               </CardHeader>
               <CardFooter className="grid p-2">
-                <Link href={"/app"}>
+                <Link href={"./home/services"}>
                   <Button
                     className={`z-30 w-full gap-2 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
                   >
                     <ArrowRightIcon className="hidden sm:block" />
                     <span className="text-xs font-bold md:text-sm">
-                      ثبت درخواست
+                      درخواست وانت
                     </span>
                   </Button>
                 </Link>
@@ -57,14 +54,11 @@ export default function Home() {
             <Card
               className={`relative z-0 grid h-auto animate-fade-in-up border-none bg-muted bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
             >
-              <CardHeader className="flex flex-col items-center justify-between p-2 text-xl text-foreground sm:text-2xl lg:flex-row">
-                <CardTitle className="text-sm md:text-base">
-                  درخواست اسباب کشی
-                </CardTitle>
+              <CardHeader className="flex flex-col items-center justify-center p-2 text-xl text-foreground sm:text-2xl lg:flex-row">
                 <Image
-                  className="order-first !-mt-12 object-contain lg:order-last"
-                  height={125}
-                  width={125}
+                  className="order-first !-mt-16 object-contain lg:order-last"
+                  height={225}
+                  width={225}
                   src={"/truck.png"}
                   alt={""}
                 ></Image>
@@ -76,7 +70,7 @@ export default function Home() {
                   >
                     <ArrowRightIcon className="hidden sm:block" />
                     <span className="text-xs font-bold md:text-sm">
-                      ثبت درخواست
+                      درخواست اسباب کشی
                     </span>
                   </Button>
                 </Link>
@@ -85,14 +79,11 @@ export default function Home() {
             <Card
               className={`relative z-0 grid h-auto animate-fade-in-up border-none bg-muted bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
             >
-              <CardHeader className="flex flex-col items-center justify-between p-2 text-xl text-foreground sm:text-2xl lg:flex-row">
-                <CardTitle className="text-sm md:text-base">
-                  درخواست کارگر
-                </CardTitle>
+              <CardHeader className="flex flex-col items-center justify-center p-2 text-xl text-foreground sm:text-2xl lg:flex-row">
                 <Image
-                  className="order-first !-mt-12 object-contain lg:order-last"
-                  height={125}
-                  width={125}
+                  className="order-first !-mt-16 object-contain lg:order-last"
+                  height={225}
+                  width={225}
                   src={"/worker.png"}
                   alt={""}
                 ></Image>
@@ -104,24 +95,21 @@ export default function Home() {
                   >
                     <ArrowRightIcon className="hidden sm:block" />
                     <span className="text-xs font-bold md:text-sm">
-                      ثبت درخواست
+                      درخواست کارگر
                     </span>
                   </Button>
                 </Link>
               </CardFooter>
-            </Card>
+            </Card>{" "}
             <Card
               className={`relative z-0 grid h-auto animate-fade-in-up border-none bg-muted bg-opacity-10 transition-all hover:z-20 hover:scale-105 hover:shadow-md`}
             >
-              <CardHeader className="flex flex-col items-center justify-between p-2 text-xl text-foreground sm:text-2xl lg:flex-row">
-                <CardTitle className="text-sm md:text-base">
-                  درخواست کارگر
-                </CardTitle>
+              <CardHeader className="flex flex-col items-center justify-center p-2 text-xl text-foreground sm:text-2xl lg:flex-row">
                 <Image
-                  className="order-first !-mt-12 object-contain lg:order-last"
-                  height={125}
-                  width={125}
-                  src={"/worker.png"}
+                  className="order-first !-mt-16 rounded-3xl object-contain p-4 lg:order-last"
+                  height={225}
+                  width={225}
+                  src={"/others.png"}
                   alt={""}
                 ></Image>
               </CardHeader>
@@ -130,9 +118,8 @@ export default function Home() {
                   <Button
                     className={`z-30 w-full gap-2 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
                   >
-                    <ArrowRightIcon className="hidden sm:block" />
                     <span className="text-xs font-bold md:text-sm">
-                      ثبت درخواست
+                      سایر خدمات (به زودی)
                     </span>
                   </Button>
                 </Link>
