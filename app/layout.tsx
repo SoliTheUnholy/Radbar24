@@ -28,7 +28,7 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
-        <Toaster />
+        <Toaster className="max-w-[90vw]" />
       </body>
     </html>
   );

@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -33,7 +33,7 @@ import {
 
 const FormSchema = z.object({
   pin: z.string().min(5, {
-    message: "Your one-time password must be 6 characters.",
+    message: "تمام ارقام را وارد کنید.",
   }),
 });
 
@@ -47,13 +47,7 @@ export default function OTP() {
   const [isLoading, setLoading] = useState(false);
   const router = useRouter();
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    toast("You submitted the following values:", {
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
+    toast.success("منتظر بمانید");
     setLoading(true);
     try {
       const response = await fetch(
@@ -77,8 +71,8 @@ export default function OTP() {
   }
 
   return (
-    <div className="relative grid h-screen items-center justify-center overflow-hidden bg-muted lg:grid-cols-5">
-      <div className="z-10 flex h-auto items-center justify-center lg:col-span-2">
+    <div className="relative grid h-[93vh] items-center justify-center overflow-hidden bg-muted lg:grid-cols-2">
+      <div className="z-10 flex h-auto items-center justify-center">
         <Card className="w-[90vw] max-w-fit">
           <CardHeader>
             <CardTitle className="text-xl">ورود به حساب</CardTitle>
@@ -88,16 +82,18 @@ export default function OTP() {
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="min-w-64 space-y-4"
+                className="space-y-4"
               >
                 <FormField
                   control={form.control}
                   name="pin"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>پسوورد</FormLabel>
+                    <FormItem className="flex flex-col items-center">
+                      <FormLabel className="self-start">
+                        رمز یکبار مصرف
+                      </FormLabel>
                       <FormControl>
-                        <InputOTP dir="ltr" maxLength={5} {...field}>
+                        <InputOTP maxLength={5} {...field}>
                           <InputOTPGroup>
                             <InputOTPSlot index={0} />
                             <InputOTPSlot index={1} />
@@ -112,7 +108,7 @@ export default function OTP() {
                   )}
                 />
                 <Button disabled={isLoading} type="submit" className="w-full">
-                  {isLoading ? "منتظر بمانید..." : "ورود / ثبت نام"}
+                  {isLoading ? "منتظر بمانید..." : "ورود"}
                 </Button>
               </form>
             </Form>
@@ -120,7 +116,15 @@ export default function OTP() {
           <CardFooter className="grid"></CardFooter>
         </Card>
       </div>
-      <div></div>
+      <div className="hidden lg:block">
+        <Image
+          className="h-[93vh] object-cover"
+          width={1920}
+          height={1080}
+          src={"/image3.png"}
+          alt={""}
+        ></Image>
+      </div>
     </div>
   );
 }

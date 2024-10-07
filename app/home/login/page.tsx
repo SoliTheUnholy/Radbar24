@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -25,7 +26,7 @@ import { Form } from "@/components/ui/form";
 import { toast } from "sonner";
 const formSchema = z.object({
   number: z.string().min(10, {
-    message: "Username must be at least 2 characters.",
+    message: "شماره تلفن را کامل وارد کنید.",
   }),
 });
 export default function LoginForm() {
@@ -38,9 +39,7 @@ export default function LoginForm() {
   });
   const router = useRouter();
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    toast("You submitted the following values:", {
-      description: <span className="text-foreground">منتظر بمانید</span>,
-    });
+    toast.success("منتظر بمانید");
     setLoading(true);
     try {
       const response = await fetch(
@@ -66,8 +65,8 @@ export default function LoginForm() {
     }
   }
   return (
-    <div className="relative grid h-screen items-center justify-center overflow-hidden bg-muted lg:grid-cols-5">
-      <div className="z-10 flex h-auto items-center justify-center lg:col-span-2">
+    <div className="relative grid h-[93vh] items-center justify-center overflow-hidden bg-muted lg:grid-cols-2">
+      <div className="z-10 flex h-auto items-center justify-center">
         <Card className="w-[90vw] max-w-fit">
           <CardHeader>
             <CardTitle className="text-xl">ورود به حساب</CardTitle>
@@ -105,7 +104,15 @@ export default function LoginForm() {
           <CardFooter className="grid"></CardFooter>
         </Card>
       </div>
-      <div></div>
+      <div className="hidden lg:block">
+        <Image
+          className="h-[93vh] object-cover"
+          width={1920}
+          height={1080}
+          src={"/image2.png"}
+          alt={""}
+        ></Image>
+      </div>
     </div>
   );
 }
