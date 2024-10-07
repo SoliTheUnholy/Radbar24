@@ -72,8 +72,8 @@ export default function OTP() {
 
   return (
     <div className="relative grid h-[93vh] items-center justify-center overflow-hidden bg-muted lg:grid-cols-2">
-      <div className="z-10 flex h-auto items-center justify-center">
-        <Card className="w-[90vw] max-w-fit">
+      <div className="z-10 flex items-center justify-center">
+        <Card className="w-[90vw] -translate-y-1/3 lg:translate-y-0 max-w-fit">
           <CardHeader>
             <CardTitle className="text-xl">ورود به حساب</CardTitle>
             <CardDescription>رمز ارسال شده را وارد کنید</CardDescription>
