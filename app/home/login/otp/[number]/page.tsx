@@ -1,12 +1,14 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useState } from "react";
+
+import { useRouter } from "next/navigation";
+
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   Card,
   CardHeader,
@@ -21,87 +23,97 @@ import {
   FormLabel,
   FormControl,
   FormMessage,
+  Form,
 } from "@/components/ui/form";
-import { Form } from "@/components/ui/form";
-import { toast } from "sonner";
-const formSchema = z.object({
-  number: z
-    .string()
-    .max(12, {
-      message: "شماره تلفن را به درستی وارد کنید.",
-    })
-    .min(10, {
-      message: "شماره تلفن را کامل وارد کنید.",
-    }),
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
+
+const FormSchema = z.object({
+  pin: z.string().min(5, {
+    message: "تمام ارقام را وارد کنید.",
+  }),
 });
-export default function LoginForm() {
-  const [isLoading, setLoading] = useState(false);
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+
+export default function OTP({ params }: { params: { number: string } }) {
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
     defaultValues: {
-      number: "",
+      pin: "",
     },
   });
+  const [error, setError] = useState("")
+  const [isLoading, setLoading] = useState(false);
   const router = useRouter();
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
     toast.success("منتظر بمانید");
     setLoading(true);
     try {
       const response = await fetch(
-        "https://api.radbar24.ir/api/Sign/SendPhoneNumber",
+        "https://api.radbar24.ir/api/Sign/GetTokenForOldUser",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            PhoneNumber: values.number,
+            PhoneNumber: params.number,
+            Code: data.pin,
           }),
         },
       );
       const res = await response.json();
-      if (res.Result.Value.IsNewUser) {
-        router.push(`./login/register/${values.number}`);
-      } else {
-        router.push(`./login/otp/${values.number}`);
-      }
+      console.log(res);
+      setError(res.Errors[0].ErrorMessage);
+      setLoading(false);
+      router.refresh();
     } catch (error) {
       console.error("Error submitting data:", error);
     }
   }
+
   return (
     <div className="relative grid h-[93vh] items-center justify-center overflow-hidden bg-muted lg:grid-cols-2">
-      <div className="z-10 flex h-auto items-center justify-center">
+      <div className="z-10 flex items-center justify-center">
         <Card className="w-[90vw] max-w-fit -translate-y-1/3 lg:translate-y-0">
           <CardHeader>
             <CardTitle className="text-xl">ورود به حساب</CardTitle>
-            <CardDescription>شماره تلفن خود را وارد کنید</CardDescription>
+            <CardDescription>رمز ارسال شده را وارد کنید</CardDescription>
           </CardHeader>
           <CardContent>
+            <span className="text-sm font-bold text-red-500">{error}</span>
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="min-w-64 space-y-4"
+                className="space-y-4"
               >
                 <FormField
                   control={form.control}
-                  name="number"
+                  name="pin"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>شماره تلفن</FormLabel>
+                    <FormItem className="flex flex-col items-center">
+                      <FormLabel className="self-start">
+                        رمز یکبار مصرف
+                      </FormLabel>
                       <FormControl>
-                        <Input
-                          type="number"
-                          placeholder="09012345678"
-                          {...field}
-                        />
+                        <InputOTP maxLength={5} {...field}>
+                          <InputOTPGroup>
+                            <InputOTPSlot index={0} />
+                            <InputOTPSlot index={1} />
+                            <InputOTPSlot index={2} />
+                            <InputOTPSlot index={3} />
+                            <InputOTPSlot index={4} />
+                          </InputOTPGroup>
+                        </InputOTP>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
                 <Button disabled={isLoading} type="submit" className="w-full">
-                  {isLoading ? "منتظر بمانید..." : "ورود / ثبت نام"}
+                  {isLoading ? "منتظر بمانید..." : "ورود"}
                 </Button>
               </form>
             </Form>
@@ -114,7 +126,7 @@ export default function LoginForm() {
           className="h-[93vh] object-cover"
           width={1920}
           height={1080}
-          src={"/image2.png"}
+          src={"/image3.png"}
           alt={""}
         ></Image>
       </div>
