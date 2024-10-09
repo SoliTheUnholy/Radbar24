@@ -3,10 +3,8 @@ import Image from "next/image";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import {
@@ -49,6 +47,25 @@ const FormSchema = z.object({
 });
 
 export default function OTP({ params }: { params: { number: string } }) {
+  const initialTime = 2 * 60;
+  const [timeRemaining, setTimeRemaining] = useState(initialTime);
+  const [resend, setResend] = useState(false);
+  useEffect(() => {
+    setInterval(() => {
+      setTimeRemaining((prevTime) => {
+        if (prevTime === 0) {
+          setResend(true);
+          return 0;
+        } else {
+          return prevTime - 1;
+        }
+      });
+    }, 1000);
+  }, []);
+
+  const minutes = Math.floor((timeRemaining % 3600) / 60);
+  const seconds = timeRemaining % 60;
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -83,6 +100,8 @@ export default function OTP({ params }: { params: { number: string } }) {
       );
       const res = await response.json();
       console.log(res);
+      if (res.Success === true) {
+      }
       setError(res.Errors[0].ErrorMessage);
       setLoading(false);
       router.refresh();
@@ -94,7 +113,7 @@ export default function OTP({ params }: { params: { number: string } }) {
   return (
     <div className="relative grid h-[93vh] items-center justify-center overflow-hidden bg-muted lg:grid-cols-2">
       <div className="z-10 flex items-center justify-center">
-        <Card className="w-[90vw] max-w-fit lg:translate-y-0">
+        <Card className="w-[90vw] max-w-72 lg:translate-y-0">
           <CardHeader>
             <CardTitle className="text-xl">ثبت نام</CardTitle>
             <CardDescription>مشخصات خود را وارد کنید</CardDescription>
@@ -104,7 +123,7 @@ export default function OTP({ params }: { params: { number: string } }) {
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-4"
+                className="grid gap-2"
               >
                 <FormField
                   control={form.control}
@@ -157,10 +176,8 @@ export default function OTP({ params }: { params: { number: string } }) {
                   control={form.control}
                   name="pin"
                   render={({ field }) => (
-                    <FormItem className="flex flex-col items-center">
-                      <FormLabel className="self-start">
-                        رمز یکبار مصرف
-                      </FormLabel>
+                    <FormItem>
+                      <FormLabel>رمز یکبار مصرف</FormLabel>
                       <FormControl>
                         <InputOTP maxLength={5} {...field}>
                           <InputOTPGroup>
@@ -172,6 +189,43 @@ export default function OTP({ params }: { params: { number: string } }) {
                           </InputOTPGroup>
                         </InputOTP>
                       </FormControl>
+                      <div className="flex justify-end py-1">
+                        <Button
+                          disabled={!resend}
+                          type="button"
+                          className="h-fit rounded-sm py-1 text-xs font-bold text-primary"
+                          variant={"ghost"}
+                          onClick={async () => {
+                            setResend(false);
+                            try {
+                              const response = await fetch(
+                                "https://api.radbar24.ir/api/Sign/SendPhoneNumber",
+                                {
+                                  method: "POST",
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                  },
+                                  body: JSON.stringify({
+                                    PhoneNumber: params.number,
+                                  }),
+                                },
+                              );
+                              if (response.ok) {
+                                setTimeRemaining(initialTime);
+                                setResend(false);
+                              }
+                            } catch (error) {
+                              console.error("Error submitting data:", error);
+                            }
+                          }}
+                        >
+                          {timeRemaining != 0
+                            ? minutes +
+                              ":" +
+                              (seconds <= 9 ? "0" + seconds : seconds)
+                            : "ارسال مجدد"}
+                        </Button>
+                      </div>
                       <FormMessage />
                     </FormItem>
                   )}

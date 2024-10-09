@@ -21,14 +21,10 @@ export default function RootLayout({
         dir="rtl"
         className={`${Vazirmatn.className} overflow-x-hidden bg-background`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-        >
-          {children}
-        </ThemeProvider>
-        <Toaster className="max-w-[90vw]" />
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            {children}
+          </ThemeProvider>
+          <Toaster className="max-w-[90vw]" />
       </body>
     </html>
   );

@@ -72,7 +72,7 @@ export default function LoginForm() {
   return (
     <div className="relative grid h-[93vh] items-center justify-center overflow-hidden bg-muted lg:grid-cols-2">
       <div className="z-10 flex h-auto items-center justify-center">
-        <Card className="w-[90vw] max-w-fit -translate-y-1/3 lg:translate-y-0">
+        <Card className="w-[90vw] max-w-80 -translate-y-1/3 lg:translate-y-0">
           <CardHeader>
             <CardTitle className="text-xl">ورود به حساب</CardTitle>
             <CardDescription>شماره تلفن خود را وارد کنید</CardDescription>
@@ -81,7 +81,7 @@ export default function LoginForm() {
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="min-w-64 space-y-4"
+                className="space-y-4"
               >
                 <FormField
                   control={form.control}

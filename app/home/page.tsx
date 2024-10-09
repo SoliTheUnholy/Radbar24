@@ -70,7 +70,7 @@ export default function Home() {
                   >
                     <ArrowRightIcon className="hidden sm:block" />
                     <span className="text-xs font-bold md:text-sm">
-                      درخواست اسباب کشی
+                      اسباب کشی
                     </span>
                   </Button>
                 </Link>
@@ -106,7 +106,7 @@ export default function Home() {
             >
               <CardHeader className="flex flex-col items-center justify-center p-2 text-xl text-foreground sm:text-2xl lg:flex-row">
                 <Image
-                  className="order-first !-mt-16 rounded-3xl object-contain p-4 lg:order-last"
+                  className="order-first !-mt-16 rounded-3xl object-contain p-5 lg:order-last"
                   height={225}
                   width={225}
                   src={"/others.png"}
@@ -119,7 +119,7 @@ export default function Home() {
                     className={`z-30 w-full gap-2 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
                   >
                     <span className="text-xs font-bold md:text-sm">
-                      سایر خدمات (به زودی)
+                      سایر خدمات
                     </span>
                   </Button>
                 </Link>
