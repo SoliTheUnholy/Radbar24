@@ -15,7 +15,7 @@ import { Input } from "@/components/ui/input";
 export default function Home() {
   return (
     <div className="mx-4 grid gap-4 sm:mx-12 xl:mx-24">
-      <div className="relative mt-4 h-auto animate-fade-in-left overflow-hidden rounded-xl">
+      <div className="relative mt-4 h-auto animate-fade-in-left overflow-hidden rounded-2xl">
         <div className="h-[20vh]">
           <AutoCarousel />
         </div>
@@ -41,7 +41,7 @@ export default function Home() {
               <CardFooter className="grid p-2">
                 <Link href={"./home/services"}>
                   <Button
-                    className={`z-30 w-full gap-2 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
+                    className={`z-30 w-full gap-2 rounded-2xl transition-all hover:scale-105 hover:shadow-md`}
                   >
                     <ArrowRightIcon className="hidden sm:block" />
                     <span className="text-xs font-bold md:text-sm">
@@ -66,7 +66,7 @@ export default function Home() {
               <CardFooter className="grid p-2">
                 <Link href={""}>
                   <Button
-                    className={`z-30 w-full gap-2 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
+                    className={`z-30 w-full gap-2 rounded-2xl transition-all hover:scale-105 hover:shadow-md`}
                   >
                     <ArrowRightIcon className="hidden sm:block" />
                     <span className="text-xs font-bold md:text-sm">
@@ -91,7 +91,7 @@ export default function Home() {
               <CardFooter className="grid p-2">
                 <Link href={""}>
                   <Button
-                    className={`z-30 w-full gap-2 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
+                    className={`z-30 w-full gap-2 rounded-2xl transition-all hover:scale-105 hover:shadow-md`}
                   >
                     <ArrowRightIcon className="hidden sm:block" />
                     <span className="text-xs font-bold md:text-sm">
@@ -116,10 +116,11 @@ export default function Home() {
               <CardFooter className="grid p-2">
                 <Link href={""}>
                   <Button
-                    className={`z-30 w-full gap-2 rounded-xl transition-all hover:scale-105 hover:shadow-md`}
+                    className={`z-30 w-full gap-2 rounded-2xl transition-all hover:scale-105 hover:shadow-md`}
                   >
+                    <ArrowRightIcon className="hidden sm:block" />
                     <span className="text-xs font-bold md:text-sm">
-                      سایر خدمات
+                      صدور باربری
                     </span>
                   </Button>
                 </Link>
@@ -181,7 +182,7 @@ export default function Home() {
       </div>
       <div className="grid gap-4 md:grid-cols-2 md:grid-rows-2">
         <div className="md:row-span-2">
-          <div className="grid gap-2 rounded-xl bg-muted/75 p-4 lg:p-8">
+          <div className="grid gap-2 rounded-2xl bg-muted/75 p-4 lg:p-8">
             <h2 className="text-lg font-black text-foreground">
               پرسش‌های متداول
             </h2>
@@ -189,7 +190,7 @@ export default function Home() {
           </div>
         </div>
         <div className="">
-          <div className="grid gap-2 rounded-xl bg-muted/75 p-4 lg:p-8">
+          <div className="grid gap-2 rounded-2xl bg-muted/75 p-4 lg:p-8">
             <h2 className="text-lg font-black text-foreground">کد تخفیف</h2>
             <p>
               شماره موبایل خود را وارد نمایید تا کد تخفیف 50 هزار تومانی برای
@@ -208,7 +209,7 @@ export default function Home() {
           </div>
         </div>
         <div>
-          <div className="grid gap-2 rounded-xl bg-muted/75 p-4 lg:p-8">
+          <div className="grid gap-2 rounded-2xl bg-muted/75 p-4 lg:p-8">
             <h2 className="text-lg font-black text-foreground">
               دانلود اپلیکیشن
             </h2>

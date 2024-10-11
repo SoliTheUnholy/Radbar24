@@ -46,9 +46,6 @@ export default function OTP({ params }: { params: { number: string } }) {
           setResend(true);
           return 0;
         } else {
-          if (resend === false) {
-            setResend(true);
-          }
           return prevTime - 1;
         }
       });
@@ -83,8 +80,8 @@ export default function OTP({ params }: { params: { number: string } }) {
         },
       );
       const res = await response.json();
-      console.log(res);
       if (res.Success === true) {
+        // console.log(res.Result);
       }
       setError(res.Errors[0].ErrorMessage);
       setLoading(false);
@@ -132,9 +129,11 @@ export default function OTP({ params }: { params: { number: string } }) {
                           type="button"
                           className="h-fit rounded-sm py-1 text-xs font-bold text-primary"
                           variant={"ghost"}
-                          onClick={async () => {
+                          onClick={() => {
+                            setResend(false);
+                            router.refresh();
                             try {
-                              const response = await fetch(
+                              fetch(
                                 "https://api.radbar24.ir/api/Sign/SendPhoneNumber",
                                 {
                                   method: "POST",
@@ -145,11 +144,13 @@ export default function OTP({ params }: { params: { number: string } }) {
                                     PhoneNumber: params.number,
                                   }),
                                 },
-                              );
-                              if (response.ok) {
-                                setTimeRemaining(initialTime);
-                                router.refresh();
-                              }
+                              ).then((response) => {
+                                if (response.ok) {
+                                  setTimeRemaining(initialTime);
+                                  setResend(false);
+                                  router.refresh();
+                                }
+                              });
                             } catch (error) {
                               console.error("Error submitting data:", error);
                             }

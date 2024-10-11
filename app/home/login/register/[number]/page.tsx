@@ -132,7 +132,12 @@ export default function OTP({ params }: { params: { number: string } }) {
                     <FormItem>
                       <FormLabel>نام</FormLabel>
                       <FormControl>
-                        <Input type="text" placeholder="نام" {...field} />
+                        <Input
+                          className="rounded-full"
+                          type="text"
+                          placeholder="نام"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -146,6 +151,7 @@ export default function OTP({ params }: { params: { number: string } }) {
                       <FormLabel>نام خانوادگی</FormLabel>
                       <FormControl>
                         <Input
+                          className="rounded-full"
                           type="text"
                           placeholder="نام خانوادگی"
                           {...field}
@@ -163,6 +169,7 @@ export default function OTP({ params }: { params: { number: string } }) {
                       <FormLabel>کد ملی</FormLabel>
                       <FormControl>
                         <Input
+                          className="rounded-full"
                           type="number"
                           placeholder="کد ملی را وارد کنید"
                           {...field}

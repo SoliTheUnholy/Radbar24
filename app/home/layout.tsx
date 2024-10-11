@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Home, Menu, Package2, CirclePlus, List, Headset } from "lucide-react";
+import { Home, Menu, CirclePlus, List, Headset } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -26,13 +26,14 @@ export default function UserLayout({
         <header className="sticky top-0 z-50 flex h-16 items-center justify-between gap-4 bg-muted px-4 transition-all md:px-6">
           <nav className="hidden flex-col gap-3 text-lg font-medium md:flex md:flex-row md:items-center md:gap-4 md:text-sm lg:gap-5">
             <Link
-              href="#"
-              className="flex items-center gap-2 text-lg font-bold md:text-base"
+              href="/home"
+              className="flex h-12 items-center gap-2 overflow-hidden rounded-full text-lg font-bold md:text-base"
             >
-              <Package2 className="h-6 w-6" />
-              <span>رادبار 24</span>
+              <video className="h-32 invert dark:invert-0" muted autoPlay>
+                <source src="/423310.mp4" type="video/mp4" />
+              </video>
             </Link>
-            <Separator orientation="vertical" className="h-10" />
+            <Separator orientation="vertical" className="h-10 bg-background" />
             <Link
               href="/home/"
               className={`flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${pathname === "/home" ? "text-lg font-bold text-primary" : ""}`}
@@ -72,10 +73,11 @@ export default function UserLayout({
               <div className="mt-10 flex justify-between">
                 <Link
                   href="/home"
-                  className="flex items-center gap-2 font-semibold"
+                  className="flex h-12 items-center gap-2 overflow-hidden rounded-2xl text-lg font-bold md:text-base"
                 >
-                  <Package2 className="h-6 w-6" />
-                  <span>رادبار 24</span>
+                  <video className="h-32 invert dark:invert-0" muted autoPlay>
+                    <source src="/423310.mp4" type="video/mp4" />
+                  </video>
                 </Link>
               </div>
               <nav className="grid gap-2 text-lg font-medium">
@@ -151,8 +153,12 @@ export default function UserLayout({
             <CardFooter className="p-3">
               <div className="flex w-full flex-col items-center justify-center border-t border-muted-foreground py-4 md:flex-row md:justify-between">
                 <span className="mb-4 text-center text-sm font-bold md:mb-0">
-                  تمامی حقوق برای رادبار 24 محفوظ می باشد .<br/> طراحی شده با ❤️ توسط
-                  <a className="hover:text-primary" href="fartakecu.com"> تجارت الکترونیک فرتاک</a>
+                  تمامی حقوق برای رادبار 24 محفوظ می باشد .<br /> طراحی شده با
+                  ❤️ توسط
+                  <a className="hover:text-primary" href="fartakecu.com">
+                    {" "}
+                    تجارت الکترونیک فرتاک
+                  </a>
                 </span>
                 <div className="flex gap-4 sm:justify-center">
                   <a

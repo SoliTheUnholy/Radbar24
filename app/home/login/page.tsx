@@ -91,8 +91,9 @@ export default function LoginForm() {
                       <FormLabel>شماره تلفن</FormLabel>
                       <FormControl>
                         <Input
+                          className="rounded-full"
                           type="number"
-                          placeholder="09012345678"
+                          placeholder="شماره تلفن همراه"
                           {...field}
                         />
                       </FormControl>
