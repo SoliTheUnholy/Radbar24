@@ -6,7 +6,7 @@ export default function HomePage() {
   const [animation, setAnimation] = useState(false);
   const router = useRouter();
   useEffect(() => {
-    sleep(700)
+    sleep(1300)
       .then(() => setAnimation(true))
       .then(() => sleep(200).then(() => router.push("/home")));
   });
