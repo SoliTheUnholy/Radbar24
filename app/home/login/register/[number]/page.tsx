@@ -1,4 +1,5 @@
 "use client";
+import Cookies from "js-cookie";
 import Image from "next/image";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -82,31 +83,36 @@ export default function OTP({ params }: { params: { number: string } }) {
     toast.success("منتظر بمانید");
     setLoading(true);
     try {
-      const response = await fetch(
-        "https://api.radbar24.ir/api/Sign/GetToken",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            Name: data.name,
-            Family: data.family,
-            NationalCode: data.nationalCode,
-            PhoneNumber: params.number,
-            Code: data.pin,
-          }),
+      fetch("https://api.radbar24.ir/api/Sign/GetToken", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+          Name: data.name,
+          Family: data.family,
+          NationalCode: data.nationalCode,
+          PhoneNumber: params.number,
+          Code: data.pin,
+        }),
+      }).then((response) =>
+        response.json().then((res) => {
+          if (res.Success === true) {
+            console.log(res.Result);
+            Cookies.set("UserId", res.Result.UserId, { expires: 30 });
+            Cookies.set("Token", res.Result.Token, { expires: 30 });
+            router.push("/home");
+          } else {
+            console.log(res);
+            setError(res.Message);
+            setLoading(false);
+            router.refresh();
+          }
+        }),
       );
-      const res = await response.json();
-      console.log(res);
-      if (res.Success === true) {
-      }
-      setError(res.Errors[0].ErrorMessage);
-      setLoading(false);
-      router.refresh();
     } catch (error) {
       console.error("Error submitting data:", error);
+      setLoading(false);
     }
   }
 
@@ -202,10 +208,12 @@ export default function OTP({ params }: { params: { number: string } }) {
                           type="button"
                           className="h-fit rounded-sm py-1 text-xs font-bold text-primary"
                           variant={"ghost"}
-                          onClick={async () => {
+                          onClick={() => {
+                            setTimeRemaining(initialTime);
                             setResend(false);
+                            router.refresh();
                             try {
-                              const response = await fetch(
+                              fetch(
                                 "https://api.radbar24.ir/api/Sign/SendPhoneNumber",
                                 {
                                   method: "POST",
@@ -216,11 +224,13 @@ export default function OTP({ params }: { params: { number: string } }) {
                                     PhoneNumber: params.number,
                                   }),
                                 },
-                              );
-                              if (response.ok) {
-                                setTimeRemaining(initialTime);
-                                setResend(false);
-                              }
+                              ).then(async (response) => {
+                                if (response.ok) {
+                                  setTimeRemaining(initialTime);
+                                  setResend(false);
+                                  router.refresh();
+                                }
+                              });
                             } catch (error) {
                               console.error("Error submitting data:", error);
                             }

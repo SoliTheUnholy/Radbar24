@@ -31,7 +31,7 @@ export default function Home() {
             >
               <CardHeader className="flex flex-col items-center justify-center p-2 text-xl text-foreground sm:text-2xl lg:flex-row">
                 <Image
-                  className="order-first !-mt-16 object-contain lg:order-last"
+                  className="order-first !-my-10 object-contain lg:order-last"
                   height={225}
                   width={225}
                   src={"/pickup.png"}
@@ -56,7 +56,7 @@ export default function Home() {
             >
               <CardHeader className="flex flex-col items-center justify-center p-2 text-xl text-foreground sm:text-2xl lg:flex-row">
                 <Image
-                  className="order-first !-mt-16 object-contain lg:order-last"
+                  className="order-first !-my-10 object-contain lg:order-last"
                   height={225}
                   width={225}
                   src={"/truck.png"}
@@ -81,7 +81,7 @@ export default function Home() {
             >
               <CardHeader className="flex flex-col items-center justify-center p-2 text-xl text-foreground sm:text-2xl lg:flex-row">
                 <Image
-                  className="order-first !-mt-16 object-contain lg:order-last"
+                  className="order-first !-my-10 object-contain lg:order-last"
                   height={225}
                   width={225}
                   src={"/worker.png"}
@@ -106,7 +106,7 @@ export default function Home() {
             >
               <CardHeader className="flex flex-col items-center justify-center p-2 text-xl text-foreground sm:text-2xl lg:flex-row">
                 <Image
-                  className="order-first !-mt-16 rounded-3xl object-contain p-5 lg:order-last"
+                  className="order-first !-my-10 rounded-3xl object-contain p-4 lg:order-last"
                   height={225}
                   width={225}
                   src={"/others.png"}

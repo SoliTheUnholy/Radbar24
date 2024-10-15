@@ -47,26 +47,27 @@ export default function LoginForm() {
     toast.success("منتظر بمانید");
     setLoading(true);
     try {
-      const response = await fetch(
-        "https://api.radbar24.ir/api/Sign/SendPhoneNumber",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            PhoneNumber: values.number,
-          }),
+      fetch("https://api.radbar24.ir/api/Sign/SendPhoneNumber", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
-      const res = await response.json();
-      if (res.Result.Value.IsNewUser) {
-        router.push(`./login/register/${values.number}`);
-      } else {
-        router.push(`./login/otp/${values.number}`);
-      }
+        body: JSON.stringify({
+          PhoneNumber: values.number,
+        }),
+      }).then((response) => {
+        response.json().then((res) => {
+          console.log(res)
+          if (res.Result.Value.IsNewUser) {
+            router.push(`./login/register/${values.number}`);
+          } else {
+            router.push(`./login/otp/${values.number}`);
+          }
+        });
+      });
     } catch (error) {
       console.error("Error submitting data:", error);
+      setLoading(false);
     }
   }
   return (

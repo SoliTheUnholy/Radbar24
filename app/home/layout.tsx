@@ -1,6 +1,14 @@
 "use client";
 import Link from "next/link";
-import { Home, Menu, CirclePlus, List, Headset } from "lucide-react";
+import Cookies from "js-cookie";
+import {
+  Home,
+  Menu,
+  CirclePlus,
+  List,
+  Headset,
+  CircleUser,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -10,15 +18,47 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Separator } from "@/components/ui/separator";
 import { Card, CardFooter } from "@/components/ui/card";
 import { SwitchTheme } from "@/components/modeToggle";
+import { useEffect, useState } from "react";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
 export default function UserLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [name, setName] = useState("");
+  useEffect(() => {
+    try {
+      if (Cookies.get("Token")) {
+        fetch("https://api.radbar24.ir/api/Sign/GetCurrentUserInfo", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + Cookies.get("Token"),
+          },
+        }).then((response) =>
+          response.json().then((res) => {
+            if (res.Success === true) {
+              setName(res.Result.Name + " " + res.Result.Family);
+            }
+          }),
+        );
+      }
+    } catch (error) {
+      console.error("Error submitting data:", error);
+    }
+  });
+  const router = useRouter();
   const pathname = usePathname();
   return (
     <>
@@ -109,24 +149,59 @@ export default function UserLayout({
             </SheetContent>
           </Sheet>
           <div className="flex flex-row items-center gap-2">
-            <Link href={"/home/login"}>
-              <Button className="w-full" variant={"default"}>
-                ورود / ثبت نام
-              </Button>
-            </Link>
+            {name ? (
+              <DropdownMenu dir="rtl">
+                <DropdownMenuTrigger asChild>
+                  <Button className="gap-2 rounded-full bg-primary text-white">
+                    <CircleUser className="h-5 w-5" />
+                    <span>{name}</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="" align="center">
+                  <DropdownMenuLabel>پنل کاربری</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>تنظیمات</DropdownMenuItem>
+                  <DropdownMenuItem>سفارشات</DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem
+                    className="text-red-500"
+                    onClick={() => {
+                      Cookies.remove("Token");
+                      Cookies.remove("UserId");
+                      router.push("/");
+                    }}
+                  >
+                    خروج
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Link href={"/home/login"}>
+                <Button className="w-full" variant={"default"}>
+                  ورود / ثبت نام
+                </Button>
+              </Link>
+            )}
             <Separator className="h-10" orientation="vertical" />
             <SwitchTheme />
           </div>
         </header>
         {children}
         <div className="fixed bottom-0 z-30 flex h-24 w-full justify-center rounded-3xl bg-clip-content p-4 sm:hidden">
-          <div className="-ml-[2px] flex h-[61.5px] grow items-center justify-center rounded-r-full bg-primary/95 shadow-lg">
+          <Link
+            target="_blank"
+            href="tel:09173177984"
+            className="-ml-[2px] flex h-[61.5px] grow items-center justify-center rounded-r-full bg-primary/95 shadow-lg"
+          >
             <div className="w-18 flex flex-col items-center justify-center gap-1 text-xs font-bold text-white">
               <Headset className="ml-1 h-6 w-6 stroke-2" />
               <h3 className="w-20 text-center">پشتیبانی</h3>
             </div>
-          </div>
-          <div className="flex h-[65px] w-[103px] items-end justify-center overflow-hidden text-background opacity-95 drop-shadow-lg">
+          </Link>
+          <Link
+            href={"/home/services"}
+            className="flex h-[65px] w-[103px] items-end justify-center overflow-hidden text-background opacity-95 drop-shadow-lg"
+          >
             <svg width="103px" height="84px">
               <path
                 className="fill-primary"
@@ -137,16 +212,19 @@ export default function UserLayout({
             <h3 className="absolute z-50 mb-[2px] text-xs font-bold text-white">
               ثبت سفارش
             </h3>
-          </div>
-          <div className="absolute mb-9 ml-[1px] flex h-14 w-14 items-center justify-center self-center justify-self-center rounded-full bg-primary opacity-95 shadow-md">
+          </Link>
+          <Link
+            href={"/home/services"}
+            className="absolute mb-9 ml-[1px] flex h-14 w-14 items-center justify-center self-center justify-self-center rounded-full bg-primary opacity-95 shadow-md"
+          >
             <CirclePlus className="h-12 w-12 stroke-[1.5px] text-white" />
-          </div>
-          <div className="flex h-[61.5px] grow items-center justify-center rounded-l-full bg-primary/95 shadow-lg">
+          </Link>
+          <Link href={"/home/orders"} className="flex h-[61.5px] grow items-center justify-center rounded-l-full bg-primary/95 shadow-lg">
             <div className="w-18 flex flex-col items-center justify-center gap-1 text-xs font-bold text-white">
               <List className="h-6 w-6" />
               <h3 className="w-20 text-center">لیست سفارشات</h3>
             </div>
-          </div>
+          </Link>
         </div>
         <footer className="mt-4">
           <Card className="rounded-none border-none px-3 pb-20 sm:pb-0">

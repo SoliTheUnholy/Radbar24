@@ -1,4 +1,5 @@
 "use client";
+import Cookies from "js-cookie";
 import Image from "next/image";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -79,15 +80,22 @@ export default function OTP({ params }: { params: { number: string } }) {
           }),
         },
       );
-      const res = await response.json();
-      if (res.Success === true) {
-        // console.log(res.Result);
-      }
-      setError(res.Errors[0].ErrorMessage);
-      setLoading(false);
-      router.refresh();
+      response.json().then((res) => {
+        if (res.Success === true) {
+          console.log(res.Result);
+          Cookies.set("UserId", res.Result.UserId, { expires: 30 });
+          Cookies.set("Token", res.Result.Token, { expires: 30 });
+          router.push("/home")
+        } else {
+          console.log(res);
+          setError(res.Message);
+          setLoading(false);
+          router.refresh();
+        }
+      });
     } catch (error) {
       console.error("Error submitting data:", error);
+      setLoading(false);
     }
   }
 
@@ -130,6 +138,7 @@ export default function OTP({ params }: { params: { number: string } }) {
                           className="h-fit rounded-sm py-1 text-xs font-bold text-primary"
                           variant={"ghost"}
                           onClick={() => {
+                            setTimeRemaining(initialTime);
                             setResend(false);
                             router.refresh();
                             try {
@@ -144,7 +153,7 @@ export default function OTP({ params }: { params: { number: string } }) {
                                     PhoneNumber: params.number,
                                   }),
                                 },
-                              ).then((response) => {
+                              ).then(async (response) => {
                                 if (response.ok) {
                                   setTimeRemaining(initialTime);
                                   setResend(false);
