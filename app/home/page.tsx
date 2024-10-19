@@ -15,13 +15,13 @@ import { Input } from "@/components/ui/input";
 export default function Home() {
   return (
     <div className="mx-4 grid gap-4 sm:mx-12 xl:mx-24">
-      <div className="relative mt-4 h-auto animate-fade-in-left overflow-hidden rounded-2xl">
+      <div className="relative mt-4 h-auto animate-fade-in-left overflow-hidden rounded-2xl shadow-md">
         <div className="h-[20vh]">
           <AutoCarousel />
         </div>
       </div>
       <div className="">
-        <Card className="grid animate-fade-in-up gap-2 border-none bg-muted/75 p-4 lg:p-8">
+        <Card className="grid animate-fade-in-up gap-2 border-none bg-muted/75 p-4 shadow-md lg:p-8">
           <h2 className="text-lg font-black text-foreground">خدمات</h2>
           <div
             className={`grid grid-cols-2 gap-4 gap-y-8 sm:grid-cols-3 lg:grid-cols-4 lg:gap-8`}
@@ -130,7 +130,7 @@ export default function Home() {
         </Card>
       </div>
       <div className="">
-        <Card className="grid gap-2 border-none bg-muted/75 p-4 lg:p-8">
+        <Card className="grid gap-2 border-none bg-muted/75 p-4 shadow-md lg:p-8">
           <h2 className="text-lg font-black text-foreground">
             چرا رادبار 24 ؟
           </h2>
@@ -180,17 +180,15 @@ export default function Home() {
           </div>
         </Card>
       </div>
-      <div className="grid gap-4 md:grid-cols-2 md:grid-rows-2">
-        <div className="md:row-span-2">
-          <div className="grid gap-2 rounded-2xl bg-muted/75 p-4 lg:p-8">
-            <h2 className="text-lg font-black text-foreground">
-              پرسش‌های متداول
-            </h2>
-            <Asked />
-          </div>
+      <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-2 rounded-2xl bg-muted/75 p-4 shadow-md lg:p-8">
+          <h2 className="text-lg font-black text-foreground">
+            پرسش‌های متداول
+          </h2>
+          <Asked />
         </div>
-        <div className="">
-          <div className="grid gap-2 rounded-2xl bg-muted/75 p-4 lg:p-8">
+        <div className="grid gap-4">
+          <div className="grid gap-2 rounded-2xl bg-muted/75 p-4 shadow-md lg:p-8">
             <h2 className="text-lg font-black text-foreground">کد تخفیف</h2>
             <p>
               شماره موبایل خود را وارد نمایید تا کد تخفیف 50 هزار تومانی برای
@@ -207,13 +205,11 @@ export default function Home() {
               </Button>
             </div>
           </div>
-        </div>
-        <div>
-          <div className="grid gap-2 rounded-2xl bg-muted/75 p-4 lg:p-8">
+          <div className="grid gap-2 rounded-2xl bg-muted/75 p-4 shadow-md lg:p-8">
             <h2 className="text-lg font-black text-foreground">
               دانلود اپلیکیشن
             </h2>
-            <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
+            <div className="grid grid-cols-2 gap-2">
               <Button variant={"outline"}>بازار</Button>
               <Button variant={"outline"}>سروش</Button>
               <Button variant={"outline"}>مایکت</Button>

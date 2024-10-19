@@ -63,7 +63,7 @@ export default function UserLayout({
   return (
     <>
       <div className="flex min-h-screen w-full flex-col">
-        <header className="sticky top-0 z-50 flex h-16 items-center justify-between gap-4 bg-muted px-4 transition-all md:px-6">
+        <header className="sticky top-0 z-50 flex h-16 items-center justify-between gap-4 bg-muted px-4 shadow-md transition-all md:px-6">
           <nav className="hidden flex-col gap-3 text-lg font-medium md:flex md:flex-row md:items-center md:gap-4 md:text-sm lg:gap-5">
             <Link
               href="/home"
@@ -219,7 +219,10 @@ export default function UserLayout({
           >
             <CirclePlus className="h-12 w-12 stroke-[1.5px] text-white" />
           </Link>
-          <Link href={"/home/orders"} className="flex h-[61.5px] grow items-center justify-center rounded-l-full bg-primary/95 shadow-lg">
+          <Link
+            href={"/home/orders"}
+            className="flex h-[61.5px] grow items-center justify-center rounded-l-full bg-primary/95 shadow-lg"
+          >
             <div className="w-18 flex flex-col items-center justify-center gap-1 text-xs font-bold text-white">
               <List className="h-6 w-6" />
               <h3 className="w-20 text-center">لیست سفارشات</h3>

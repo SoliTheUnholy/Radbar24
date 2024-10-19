@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Toaster } from "sonner";
 import { ThemeProvider } from "@/components/themeProvider";
+import Toast from "@/components/Toast";
 
 const Vazirmatn = localFont({ src: "./fonts/Vazirmatn[wght].woff2" });
 
@@ -23,7 +23,7 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
-          <Toaster dir="rtl" className="max-w-[90vw]" />
+          <Toast />
         </ThemeProvider>
       </body>
     </html>
