@@ -23,8 +23,8 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
+          <Toaster dir="rtl" className="max-w-[90vw]" />
         </ThemeProvider>
-        <Toaster className="max-w-[90vw]" />
       </body>
     </html>
   );

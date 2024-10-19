@@ -103,8 +103,7 @@ export default function OTP({ params }: { params: { number: string } }) {
             Cookies.set("Token", res.Result.Token, { expires: 30 });
             router.push("/home");
           } else {
-            console.log(res);
-            setError(res.Message);
+            setError(res.Errors[0].ErrorMessage);
             setLoading(false);
             router.refresh();
           }

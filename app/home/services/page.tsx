@@ -1,4 +1,5 @@
-"use client"
+"use client";
+import Cookies from "js-cookie";
 import { AutoCarousel } from "@/components/autoCarousel";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,9 +11,37 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export default function Services() {
+  const router = useRouter();
+  useEffect(() => {
+    try {
+      if (Cookies.get("Token")) {
+        fetch("https://api.radbar24.ir/api/Sign/GetCurrentUserInfo", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + Cookies.get("Token"),
+          },
+        }).then((response) =>
+          response.json().then((res) => {
+            if (res.Success === false) {
+              toast.warning("ابتدا وارد حساب کاربری خود شوید !");
+              router.push("/home/login");
+            }
+          }),
+        );
+      } else {
+        toast.warning("ابتدا وارد حساب کاربری خود شوید");
+        router.push("/home/login");
+      }
+    } catch (error) {
+      console.error("Error submitting data:", error);
+    }
+  });
   const [tb, setTb] = useState("distance");
   return (
     <div className="mx-auto grid w-[95vw] gap-4 sm:w-fit xl:mx-24">
