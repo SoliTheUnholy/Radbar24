@@ -12,6 +12,7 @@ import {
 import Link from "next/link";
 import { Asked } from "@/components/Asked";
 import { Input } from "@/components/ui/input";
+
 export default function Home() {
   return (
     <div className="mx-4 grid gap-4 sm:mx-12 xl:mx-24">
@@ -120,7 +121,7 @@ export default function Home() {
                   >
                     <ArrowRightIcon className="hidden sm:block" />
                     <span className="text-xs font-bold md:text-sm">
-                      صدور باربری
+                      صدور باربرگ
                     </span>
                   </Button>
                 </Link>
